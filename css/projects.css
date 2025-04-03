@@ -258,34 +258,49 @@
 }
 
 @media (max-width: 768px) {
+    /* Ensure the parent section takes full width */
     .projects-section {
-        padding: 20px; /* Reduce padding to allow more space for cards */
-        margin: 15px auto; /* Reduce margin for tighter layout */
-        width: 100%; /* Ensure the section takes full width */
+        padding: 15px !important; /* Reduced padding with higher specificity */
+        margin: 10px auto !important;
+        width: 100% !important;
+        max-width: 100% !important; /* Override any max-width constraints */
+        box-sizing: border-box !important;
     }
 
+    /* Ensure the dropdown content doesn’t restrict width */
+    .projects-content {
+        padding: 10px !important;
+        width: 100% !important;
+        max-height: none !important; /* Ensure it’s not constrained vertically */
+    }
+
+    /* Force the grid to be full-width and single-column */
     .projects-grid {
-        grid-template-columns: 1fr; /* Single column layout */
-        gap: 15px; /* Reduce gap to fit wider cards */
-        padding: 0; /* Remove extra padding inside the grid */
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* Single column */
+        gap: 10px !important; /* Minimal gap */
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
+    /* Force the project card to take up maximum width */
     .project-card {
-        width: 98%; /* Increase width to nearly full container width */
-        max-width: none; /* Remove max-width restriction */
-        margin: 0 auto; /* Keep centered */
-        border-radius: 15px; /* Slightly reduce border-radius if desired */
+        width: 100% !important; /* Full width of the grid cell */
+        min-width: 0 !important; /* Prevent shrinking */
+        max-width: 100% !important; /* Remove any max-width limits */
+        margin: 0 !important; /* Remove centering margin to stretch fully */
+        border-radius: 10px !important; /* Optional: Adjust for aesthetics */
+        box-sizing: border-box !important; /* Include padding/border in width */
     }
 
+    /* Adjust image and content for proportion */
     .project-image {
-        height: 160px; /* Adjust height for proportion (optional) */
+        height: 150px !important; /* Adjust height if needed */
+        width: 100% !important;
     }
 
     .project-content {
-        padding: 15px; /* Reduce padding slightly to fit more content */
-    }
-
-    .projects-content {
-        padding: 10px; /* Reduce padding around content */
+        padding: 10px !important; /* Tighten padding */
     }
 }

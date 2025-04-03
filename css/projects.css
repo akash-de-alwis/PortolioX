@@ -256,3 +256,24 @@
     justify-content: center;
     margin-top: 20px;
 }
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Single column layout for mobile */
+        gap: 20px; /* Adjust gap if needed */
+    }
+
+    .project-card {
+        width: 90%; /* Increase width to 90% of the container */
+        max-width: 400px; /* Optional: Set a max-width to prevent it from getting too wide */
+        margin: 0 auto; /* Center the card horizontally */
+    }
+
+    .project-image {
+        height: 180px; /* Optional: Adjust image height for better proportion */
+    }
+
+    .project-content {
+        padding: 20px; /* Optional: Adjust padding for better spacing */
+    }
+}

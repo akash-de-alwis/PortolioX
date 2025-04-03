@@ -210,14 +210,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Projects Dropdown Toggle with Dynamic Height (Optimized for No Lag)
+    // Projects Dropdown Toggle with Dynamic Height
     const projectsToggle = document.getElementById('projects-toggle');
     const projectsContent = document.getElementById('projects-content');
-    let isAnimating = false; // Prevent multiple clicks during animation
+    let isAnimating = false;
 
     if (projectsToggle && projectsContent) {
         projectsToggle.addEventListener('click', function() {
-            if (isAnimating) return; // Prevent re-triggering during animation
+            if (isAnimating) return;
             isAnimating = true;
 
             const isActive = projectsContent.classList.contains('active');
@@ -225,26 +225,33 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isActive) {
                 // Collapse
                 projectsContent.style.maxHeight = projectsContent.scrollHeight + 'px'; // Set current height
+                projectsContent.style.padding = '20px'; // Current padding
                 requestAnimationFrame(() => {
                     projectsContent.classList.remove('active');
                     projectsToggle.classList.remove('active');
-                    projectsContent.style.maxHeight = '0'; // Animate to 0
+                    projectsContent.style.maxHeight = '0'; // Collapse to 0
+                    projectsContent.style.padding = '0 20px'; // Collapse padding
                 });
             } else {
-                // Expand (Pre-calculate height to avoid lag)
+                // Expand
                 const height = projectsContent.scrollHeight + 'px';
-                projectsContent.style.maxHeight = '0'; // Ensure it starts at 0
+                projectsContent.style.maxHeight = '0'; // Start from 0
+                projectsContent.style.padding = '0 20px'; // Start with no padding
                 projectsContent.classList.add('active');
                 projectsToggle.classList.add('active');
                 requestAnimationFrame(() => {
-                    projectsContent.style.maxHeight = height; // Animate to full height
+                    projectsContent.style.maxHeight = height; // Expand to full height
+                    projectsContent.style.padding = '20px'; // Restore padding
                 });
             }
 
             // Reset animation flag when transition ends
             projectsContent.addEventListener('transitionend', function handler() {
                 if (!isActive) {
-                    projectsContent.style.maxHeight = 'none'; // Allow dynamic resizing
+                    projectsContent.style.maxHeight = 'none'; // Allow dynamic resizing when open
+                } else {
+                    projectsContent.style.maxHeight = '0'; // Ensure fully collapsed
+                    projectsContent.style.padding = '0 20px'; // Ensure padding is reset
                 }
                 isAnimating = false;
                 projectsContent.removeEventListener('transitionend', handler);
@@ -311,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
 
             // Send email using EmailJS
-            emailjs.send('service_fev76ec', 'template_xkgbdth', params) // Your Service ID and Template ID
+            emailjs.send('service_fev76ec', 'template_xkgbdth', params)
                 .then(() => {
                     // Hide sending animation
                     sendingAnimation.classList.remove('active');

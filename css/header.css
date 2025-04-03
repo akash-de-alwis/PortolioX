@@ -89,13 +89,23 @@
     font-weight: 600;
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
     .header {
-        padding: 10px 15px;
+        padding: 15px 10px; /* Reduce padding to avoid overflow */
+        width: 100%;
+        box-sizing: border-box; /* Include padding in width */
     }
 
-    .nav-links {
-        display: none;
+    .mobile-nav-overlay {
+        width: 100%;
+        left: 0;
+        right: 0;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    .mobile-nav-content {
+        width: 100%;
+        max-width: 100%; /* Ensure it doesn’t exceed viewport */
+        box-sizing: border-box;
     }
 }

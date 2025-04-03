@@ -258,22 +258,34 @@
 }
 
 @media (max-width: 768px) {
+    .projects-section {
+        padding: 20px; /* Reduce padding to allow more space for cards */
+        margin: 15px auto; /* Reduce margin for tighter layout */
+        width: 100%; /* Ensure the section takes full width */
+    }
+
     .projects-grid {
-        grid-template-columns: 1fr; /* Single column layout for mobile */
-        gap: 20px; /* Adjust gap if needed */
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 15px; /* Reduce gap to fit wider cards */
+        padding: 0; /* Remove extra padding inside the grid */
     }
 
     .project-card {
-        width: 90%; /* Increase width to 90% of the container */
-        max-width: 400px; /* Optional: Set a max-width to prevent it from getting too wide */
-        margin: 0 auto; /* Center the card horizontally */
+        width: 98%; /* Increase width to nearly full container width */
+        max-width: none; /* Remove max-width restriction */
+        margin: 0 auto; /* Keep centered */
+        border-radius: 15px; /* Slightly reduce border-radius if desired */
     }
 
     .project-image {
-        height: 180px; /* Optional: Adjust image height for better proportion */
+        height: 160px; /* Adjust height for proportion (optional) */
     }
 
     .project-content {
-        padding: 20px; /* Optional: Adjust padding for better spacing */
+        padding: 15px; /* Reduce padding slightly to fit more content */
+    }
+
+    .projects-content {
+        padding: 10px; /* Reduce padding around content */
     }
 }

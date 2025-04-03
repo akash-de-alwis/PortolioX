@@ -258,49 +258,28 @@
 }
 
 @media (max-width: 768px) {
-    /* Ensure the parent section takes full width */
     .projects-section {
-        padding: 15px !important; /* Reduced padding with higher specificity */
+        padding: 15px !important; /* Reduced padding */
         margin: 10px auto !important;
         width: 100% !important;
-        max-width: 100% !important; /* Override any max-width constraints */
-        box-sizing: border-box !important;
     }
 
-    /* Ensure the dropdown content doesn’t restrict width */
     .projects-content {
-        padding: 10px !important;
-        width: 100% !important;
-        max-height: none !important; /* Ensure it’s not constrained vertically */
+        padding: 0 10px !important; /* Ensure padding collapses when closed */
     }
 
-    /* Force the grid to be full-width and single-column */
+    .projects-content.active {
+        padding: 10px !important; /* Padding only when active */
+    }
+
     .projects-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important; /* Single column */
-        gap: 10px !important; /* Minimal gap */
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
         padding: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
     }
 
-    /* Force the project card to take up maximum width */
     .project-card {
-        width: 100% !important; /* Full width of the grid cell */
-        min-width: 0 !important; /* Prevent shrinking */
-        max-width: 100% !important; /* Remove any max-width limits */
-        margin: 0 !important; /* Remove centering margin to stretch fully */
-        border-radius: 10px !important; /* Optional: Adjust for aesthetics */
-        box-sizing: border-box !important; /* Include padding/border in width */
-    }
-
-    /* Adjust image and content for proportion */
-    .project-image {
-        height: 150px !important; /* Adjust height if needed */
         width: 100% !important;
-    }
-
-    .project-content {
-        padding: 10px !important; /* Tighten padding */
+        margin: 0 !important;
     }
 }

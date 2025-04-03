@@ -224,24 +224,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (isActive) {
                 // Collapse
-                projectsContent.style.maxHeight = projectsContent.scrollHeight + 'px'; // Set current height
-                projectsContent.style.padding = '20px'; // Current padding
+                projectsContent.style.maxHeight = projectsContent.scrollHeight + 'px';
+                projectsContent.style.padding = '20px';
                 requestAnimationFrame(() => {
                     projectsContent.classList.remove('active');
                     projectsToggle.classList.remove('active');
-                    projectsContent.style.maxHeight = '0'; // Collapse to 0
-                    projectsContent.style.padding = '0 20px'; // Collapse padding
+                    projectsContent.style.maxHeight = '0';
+                    projectsContent.style.padding = '0 20px';
                 });
             } else {
                 // Expand
-                const height = projectsContent.scrollHeight + 'px';
-                projectsContent.style.maxHeight = '0'; // Start from 0
-                projectsContent.style.padding = '0 20px'; // Start with no padding
+                projectsContent.style.maxHeight = '0';
+                projectsContent.style.padding = '0 20px';
                 projectsContent.classList.add('active');
                 projectsToggle.classList.add('active');
                 requestAnimationFrame(() => {
-                    projectsContent.style.maxHeight = height; // Expand to full height
-                    projectsContent.style.padding = '20px'; // Restore padding
+                    projectsContent.style.maxHeight = projectsContent.scrollHeight + 'px';
+                    projectsContent.style.padding = '20px';
                 });
             }
 
@@ -250,8 +249,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!isActive) {
                     projectsContent.style.maxHeight = 'none'; // Allow dynamic resizing when open
                 } else {
-                    projectsContent.style.maxHeight = '0'; // Ensure fully collapsed
-                    projectsContent.style.padding = '0 20px'; // Ensure padding is reset
+                    projectsContent.style.maxHeight = '0';
+                    projectsContent.style.padding = '0 20px';
                 }
                 isAnimating = false;
                 projectsContent.removeEventListener('transitionend', handler);
@@ -285,9 +284,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Recalculate height after filtering
+            // Recalculate height immediately after filtering
             if (projectsContent.classList.contains('active')) {
-                projectsContent.style.maxHeight = projectsContent.scrollHeight + 'px';
+                projectsContent.style.maxHeight = 'none'; // Reset to natural height
+                requestAnimationFrame(() => {
+                    projectsContent.style.maxHeight = projectsContent.scrollHeight + 'px';
+                });
             }
         });
     });

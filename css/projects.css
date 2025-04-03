@@ -5,6 +5,7 @@
     padding: 50px;
     margin: 30px auto;
     width: 95%;
+    box-sizing: border-box; /* Ensure padding doesn’t cause overflow */
 }
 
 .projects-dropdown {
@@ -98,6 +99,7 @@
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
     opacity: 1;
+    box-sizing: border-box; /* Prevent overflow */
 }
 
 .project-card.hidden {
@@ -259,27 +261,64 @@
 
 @media (max-width: 768px) {
     .projects-section {
-        padding: 15px !important; /* Reduced padding */
+        padding: 15px !important;
         margin: 10px auto !important;
         width: 100% !important;
+        box-sizing: border-box; /* Ensure padding doesn’t cause overflow */
     }
 
     .projects-content {
-        padding: 0 10px !important; /* Ensure padding collapses when closed */
+        padding: 0 10px !important;
     }
 
     .projects-content.active {
-        padding: 10px !important; /* Padding only when active */
+        padding: 10px !important;
+        max-height: none; /* Let content dictate height, override if JS sets it */
     }
 
     .projects-grid {
         grid-template-columns: 1fr !important;
-        gap: 10px !important;
+        gap: 15px !important; /* Slightly larger gap for readability */
         padding: 0 !important;
     }
 
     .project-card {
         width: 100% !important;
         margin: 0 !important;
+        box-sizing: border-box; /* Prevent overflow */
+    }
+
+    .project-image {
+        height: 150px; /* Slightly smaller for mobile */
+    }
+
+    .project-filter {
+        font-size: 14px; /* Slightly smaller for mobile */
+    }
+
+    .projects-nav {
+        gap: 15px; /* Adjust spacing */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        font-size: 13px;
+        flex: 1;
+        min-width: 100px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-nav {
+        gap: 18px;
+    }
+
+    .action-btn {
+        padding: 6px 12px;
     }
 }

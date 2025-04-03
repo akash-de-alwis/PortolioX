@@ -1,0 +1,20 @@
+/* Side Button */
+.side-button {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #8eff54;
+    padding: 15px 10px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-weight: 600;
+    color: #000;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.side-button:hover {
+    padding-left: 20px;
+}

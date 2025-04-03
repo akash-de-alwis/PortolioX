@@ -1,0 +1,38 @@
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-nav-links a {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mobile-nav-links a:nth-child(1) { animation-delay: 0.1s; }
+.mobile-nav-links a:nth-child(2) { animation-delay: 0.2s; }
+.mobile-nav-links a:nth-child(3) { animation-delay: 0.3s; }
+.mobile-nav-links a:nth-child(4) { animation-delay: 0.4s; }
+.mobile-nav-links a:nth-child(5) { animation-delay: 0.5s; }

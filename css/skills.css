@@ -1,0 +1,147 @@
+/* Skills Section */
+.skills-section {
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 30px;
+    padding: 50px;
+    margin: 30px auto;
+    width: 95%;
+    position: relative;
+}
+
+.skills-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.skills-header p {
+    font-size: 18px;
+    color: #cccccc;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.skills-header p::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #8eff54;
+    margin: 25px auto 0;
+    border-radius: 2px;
+}
+
+.skills-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.skill-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.skill-info {
+    display: flex;
+    align-items: center; /* Align icon and name vertically */
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.skill-name-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and name */
+}
+
+.skill-icon {
+    height: 24px;
+    width: 24px;
+    background-color: rgba(142, 255, 84, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8eff54;
+    font-size: 12px;
+}
+
+.skill-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.skill-percentage {
+    color: #8eff54;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.skill-progress {
+    height: 5px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #8eff54;
+    border-radius: 5px;
+    animation: progressAnimation 1.5s ease-in-out forwards;
+}
+
+@keyframes progressAnimation {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--progress-width);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .skills-section {
+        padding: 30px;
+    }
+
+    .skills-content {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-item {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-name {
+        font-size: 14px;
+    }
+
+    .skill-percentage {
+        font-size: 12px;
+    }
+
+    .skill-icon {
+        height: 20px;
+        width: 20px;
+        font-size: 10px;
+    }
+}

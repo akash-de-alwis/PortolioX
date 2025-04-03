@@ -1,0 +1,19 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: white;
+    overflow-x: hidden;
+    padding-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

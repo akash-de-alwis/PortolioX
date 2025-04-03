@@ -1,0 +1,101 @@
+/* Header and Navigation */
+.header {
+    background-color: #121212;
+    border-radius: 30px;
+    margin: 10px auto 5px; /* Reduced margin-bottom from default/implied to 5px */
+    width: 95%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 5px; /* Reduced from 10px to 5px */
+    z-index: 1000;
+}
+
+.header-scrolled {
+    background-color: rgba(18, 18, 18, 0.95);
+    margin: 5px auto 5px; /* Adjusted margin-bottom to match */
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.header-scrolled:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+    background-color: rgba(18, 18, 18, 1);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    color: #8eff54;
+    margin-right: 6px;
+    font-size: 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    transition: color 0.3s ease, background-color 0.3s ease;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #ffffff; /* Default color */
+    text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #8eff54; /* Green on hover/active */
+    background-color: rgba(142, 255, 84, 0.1); /* Subtle green background */
+}
+
+.nav-links a.active {
+    font-weight: 600; /* Slightly bolder for active state */
+}
+
+/* Mobile nav links */
+.mobile-nav-links a {
+    transition: color 0.3s ease, background-color 0.3s ease;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a.active {
+    color: #8eff54;
+    background-color: rgba(142, 255, 84, 0.1);
+}
+
+.mobile-nav-links a.active {
+    font-weight: 600;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 15px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}

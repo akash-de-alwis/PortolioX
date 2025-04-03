@@ -1,0 +1,210 @@
+/* Education & Experience Section */
+.education-experience-section {
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 30px;
+    padding: 50px;
+    margin: 30px auto;
+    width: 95%;
+    position: relative;
+}
+
+.education-experience-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.education-experience-header p {
+    font-size: 18px;
+    color: #cccccc;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.education-experience-header p::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #8eff54;
+    margin: 25px auto 0;
+    border-radius: 2px;
+}
+
+.tabs-container {
+    margin-top: 20px;
+    position: relative;
+}
+
+.tabs-navigation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.tab-button {
+    background-color: rgba(25, 25, 25, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 25px;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-button:first-child {
+    border-radius: 20px 0 0 20px;
+}
+
+.tab-button:last-child {
+    border-radius: 0 20px 20px 0;
+}
+
+.tab-button.active {
+    background-color: #8eff54;
+    color: #000;
+    border-color: #8eff54;
+}
+
+.tab-button:hover:not(.active) {
+    background-color: rgba(35, 35, 35, 0.9);
+    border-color: rgba(142, 255, 84, 0.3);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: rgba(142, 255, 84, 0.3);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    padding: 15px 30px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #8eff54;
+    border-radius: 50%;
+    top: 18px;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -10px;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -10px;
+}
+
+.timeline-content {
+    background-color: rgba(25, 25, 25, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    background-color: rgba(35, 35, 35, 0.9);
+    transform: translateY(-3px);
+    border-color: rgba(142, 255, 84, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-date {
+    background-color: rgba(142, 255, 84, 0.2);
+    color: #8eff54;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.timeline-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.timeline-subtitle {
+    color: #aaa;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.timeline-description {
+    color: #ddd;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.skill-tag {
+    background-color: rgba(142, 255, 84, 0.1);
+    color: #8eff54;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background-color: rgba(142, 255, 84, 0.2);
+    transform: translateY(-2px);
+}

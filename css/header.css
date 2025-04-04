@@ -10,7 +10,7 @@
     align-items: center;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    position: sticky;
+    position: sticky; /* Default behavior for larger screens */
     top: 5px; /* Reduced from 10px to 5px */
     z-index: 1000;
 }
@@ -89,11 +89,25 @@
     font-weight: 600;
 }
 
+/* Media Query for Mobile View */
 @media (max-width: 768px) {
     .header {
+        position: fixed; /* Change to fixed for mobile view */
+        top: 0; /* Stick to the top of the viewport */
+        width: 100%; /* Full width for mobile */
+        margin: 0; /* Remove margins to ensure it spans the full width */
         padding: 15px 10px; /* Reduce padding to avoid overflow */
-        width: 100%;
         box-sizing: border-box; /* Include padding in width */
+        border-radius: 0; /* Remove border-radius for a cleaner look on mobile */
+    }
+
+    .header-scrolled {
+        margin: 0; /* Ensure no margin in scrolled state */
+        transform: none; /* Disable transform in mobile view to avoid shifting */
+    }
+
+    .header-scrolled:hover {
+        transform: none; /* Disable hover effect in mobile view */
     }
 
     .mobile-nav-overlay {

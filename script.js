@@ -1,3 +1,4 @@
+// script.js
 document.addEventListener('DOMContentLoaded', function() {
     const fadeElements = document.querySelectorAll('.fade-in');
     const header = document.querySelector('.header');
@@ -7,9 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
     const serviceItems = document.querySelectorAll('.service-item');
     const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav-links a');
-    const statsSection = document.querySelector('.stats-section');
-    const statNumbers = document.querySelectorAll('.stat-number');
-    let hasAnimatedStats = false;
 
     // Initialize EmailJS with your User ID
     emailjs.init('C5d_NhrPTY9qF3K2e'); // Your EmailJS User ID
@@ -62,29 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Function to animate stat numbers
-    function animateCount(element, start, end, duration) {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            const easedProgress = easeOutQuad(progress);
-            const current = Math.floor(start + (end - start) * easedProgress);
-            element.textContent = current + (end > 100 ? '+' : '');
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            } else {
-                element.textContent = end + (end > 100 ? '+' : '');
-            }
-        };
-        requestAnimationFrame(step);
-    }
-
-    // Easing function for smooth animation
-    function easeOutQuad(t) {
-        return t * (2 - t);
-    }
-
     // Scroll event handler
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -101,15 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.style.opacity = '1';
             }
         });
-
-        const statsRect = statsSection.getBoundingClientRect();
-        if (statsRect.top <= window.innerHeight * 0.75 && !hasAnimatedStats) {
-            statNumbers.forEach(number => {
-                const target = parseInt(number.getAttribute('data-target'));
-                animateCount(number, 0, target, 2000);
-            });
-            hasAnimatedStats = true;
-        }
 
         updateActiveNavLink();
     });

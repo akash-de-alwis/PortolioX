@@ -101,18 +101,15 @@
     top: 0;
     left: 0;
     height: 100%;
+    width: 0; /* Start at 0 width */
     background-color: #8eff54;
     border-radius: 5px;
-    animation: progressAnimation 1.5s ease-in-out forwards;
+    transition: width 0s; /* No transition by default */
 }
 
-@keyframes progressAnimation {
-    from {
-        width: 0;
-    }
-    to {
-        width: var(--progress-width);
-    }
+.skill-progress.animate-progress::before {
+    width: var(--progress-width); /* Animate to the defined width */
+    transition: width 1.5s ease-in-out; /* Apply transition when class is added */
 }
 
 /* Media Queries */

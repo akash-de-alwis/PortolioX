@@ -50,4 +50,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (statsSection) {
         observer.observe(statsSection);
     }
+
+    async function fetchGitHubStats() {
+        try {
+            const response = await fetch('https://api.github.com/users/akash-de-alwis/repos');
+            const repos = await response.json();
+            const projectStat = document.querySelector('.stat-item:nth-child(1) .stat-number');
+            projectStat.setAttribute('data-target', repos.length);
+            animateStats(); // Re-run animation with updated values
+        } catch (error) {
+            console.error('Error fetching GitHub stats:', error);
+        }
+    }
+    fetchGitHubStats();
 });

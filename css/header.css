@@ -4,7 +4,7 @@
     border-radius: 30px;
     margin: 10px auto 5px;
     width: 95%;
-    padding: 5px 20px; /* Reduced top/bottom padding from 10px to 5px */
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,7 +22,6 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transform: translateY(0);
     transition: all 0.3s ease;
-    padding: 5px 20px; /* Match reduced padding */
 }
 
 .header-scrolled:hover {
@@ -32,7 +31,7 @@
 }
 
 .logo {
-    font-size: 18px; /* Reduced from 20px */
+    font-size: 20px;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -41,25 +40,25 @@
 .logo-icon {
     color: #8eff54;
     margin-right: 6px;
-    font-size: 18px; /* Reduced from 20px */
+    font-size: 20px;
 }
 
 .nav-links {
     display: flex;
     gap: 20px;
-    align-items: center;
+    align-items: center; /* Vertically align links */
 }
 
 .nav-links a {
     transition: color 0.3s ease, background-color 0.3s ease;
     font-weight: 500;
-    padding: 4px 10px; /* Reduced top/bottom padding from 6px to 4px */
-    margin: 5px 0; /* Consistent margin */
+    padding: 6px 10px;
+    margin: 5px 0; /* Consistent top/bottom margin */
     border-radius: 20px;
-    font-size: 13px; /* Reduced from 14px */
+    font-size: 14px;
     color: #ffffff;
     text-decoration: none;
-    line-height: 1.5;
+    line-height: 1.5; /* Standardize text alignment */
 }
 
 .nav-links a:hover,
@@ -73,21 +72,20 @@
 }
 
 .nav-links a.contact-btn {
-    background-color: #ffffff;
-    color: #121212;
-    padding: 4px 14px; /* Reduced top/bottom padding from 6px to 4px, slightly less horizontal */
-    margin: 5px 0;
+    background-color: #ffffff; /* White background */
+    color: #121212; /* Dark text */
+    padding: 6px 16px; /* Match top/bottom padding, wider horizontally */
+    margin: 5px 0; /* Match margin */
     border-radius: 25px;
     font-weight: 600;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
-    font-size: 13px; /* Match nav-links */
     line-height: 1.5;
 }
 
 .nav-links a.contact-btn:hover,
 .nav-links a.contact-btn.active {
-    background-color: #8eff54;
+    background-color: #8eff54; /* Green on hover/active */
     color: #121212;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);

@@ -2,26 +2,27 @@
 .header {
     background-color: #121212;
     border-radius: 30px;
-    margin: 10px auto 5px; /* Reduced margin-bottom from default/implied to 5px */
+    margin: 10px auto 5px;
     width: 95%;
-    padding: 10px 20px;
+    padding: 5px 20px; /* Reduced top/bottom padding from 10px to 5px */
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    position: sticky; /* Default behavior for larger screens */
-    top: 5px; /* Reduced from 10px to 5px */
+    position: sticky;
+    top: 5px;
     z-index: 1000;
 }
 
 .header-scrolled {
     background-color: rgba(18, 18, 18, 0.95);
-    margin: 5px auto 5px; /* Adjusted margin-bottom to match */
+    margin: 5px auto 5px;
     backdrop-filter: blur(5px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transform: translateY(0);
     transition: all 0.3s ease;
+    padding: 5px 20px; /* Match reduced padding */
 }
 
 .header-scrolled:hover {
@@ -31,7 +32,7 @@
 }
 
 .logo {
-    font-size: 20px;
+    font-size: 18px; /* Reduced from 20px */
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -40,35 +41,63 @@
 .logo-icon {
     color: #8eff54;
     margin-right: 6px;
-    font-size: 20px;
+    font-size: 18px; /* Reduced from 20px */
 }
 
 .nav-links {
     display: flex;
     gap: 20px;
+    align-items: center;
 }
 
 .nav-links a {
     transition: color 0.3s ease, background-color 0.3s ease;
     font-weight: 500;
-    padding: 6px 10px;
+    padding: 4px 10px; /* Reduced top/bottom padding from 6px to 4px */
+    margin: 5px 0; /* Consistent margin */
     border-radius: 20px;
-    font-size: 14px;
-    color: #ffffff; /* Default color */
+    font-size: 13px; /* Reduced from 14px */
+    color: #ffffff;
     text-decoration: none;
+    line-height: 1.5;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #8eff54; /* Green on hover/active */
-    background-color: rgba(142, 255, 84, 0.1); /* Subtle green background */
+    color: #8eff54;
+    background-color: rgba(142, 255, 84, 0.1);
 }
 
 .nav-links a.active {
-    font-weight: 600; /* Slightly bolder for active state */
+    font-weight: 600;
 }
 
-/* Mobile nav links */
+.nav-links a.contact-btn {
+    background-color: #ffffff;
+    color: #121212;
+    padding: 4px 14px; /* Reduced top/bottom padding from 6px to 4px, slightly less horizontal */
+    margin: 5px 0;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    font-size: 13px; /* Match nav-links */
+    line-height: 1.5;
+}
+
+.nav-links a.contact-btn:hover,
+.nav-links a.contact-btn.active {
+    background-color: #8eff54;
+    color: #121212;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-links a.contact-btn.active {
+    font-weight: 700;
+}
+
+/* Mobile nav links - Unchanged from original */
 .mobile-nav-links a {
     transition: color 0.3s ease, background-color 0.3s ease;
     font-weight: 500;
@@ -89,37 +118,37 @@
     font-weight: 600;
 }
 
-/* Media Query for Mobile View */
+/* Media Query for Mobile View - Unchanged from original */
 @media (max-width: 768px) {
     .header {
-        position: fixed; /* Change to fixed for mobile view */
-        top: 0; /* Stick to the top of the viewport */
-        width: 100%; /* Full width for mobile */
-        margin: 0; /* Remove margins to ensure it spans the full width */
-        padding: 15px 10px; /* Reduce padding to avoid overflow */
-        box-sizing: border-box; /* Include padding in width */
-        border-radius: 0; /* Remove border-radius for a cleaner look on mobile */
+        position: fixed;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 15px 10px;
+        box-sizing: border-box;
+        border-radius: 0;
     }
 
     .header-scrolled {
-        margin: 0; /* Ensure no margin in scrolled state */
-        transform: none; /* Disable transform in mobile view to avoid shifting */
+        margin: 0;
+        transform: none;
     }
 
     .header-scrolled:hover {
-        transform: none; /* Disable hover effect in mobile view */
+        transform: none;
     }
 
     .mobile-nav-overlay {
         width: 100%;
         left: 0;
         right: 0;
-        overflow-x: hidden; /* Prevent horizontal scroll */
+        overflow-x: hidden;
     }
 
     .mobile-nav-content {
         width: 100%;
-        max-width: 100%; /* Ensure it doesn’t exceed viewport */
+        max-width: 100%;
         box-sizing: border-box;
     }
 }

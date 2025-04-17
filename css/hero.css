@@ -6,7 +6,7 @@
     margin: 10px auto;
     width: 95%;
     position: relative;
-    height: auto; /* Changed from calc(100vh - 60px) to auto for mobile flexibility */
+    height: auto;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     display: flex;
@@ -57,7 +57,7 @@
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
-    opacity: 0; /* Initial state */
+    opacity: 0;
 }
 
 .bento-portrait-img.animate-fade-in {
@@ -106,7 +106,7 @@
     color: #fff;
     margin: 0 0 10px 0;
     line-height: 1.1;
-    opacity: 0; /* Initial state */
+    opacity: 0;
 }
 
 .hero-title.animate {
@@ -124,7 +124,7 @@
     font-size: 18px;
     font-weight: 600;
     margin: 0 0 20px 0;
-    opacity: 0; /* Initial state */
+    opacity: 0;
 }
 
 .hero-tagline.animate {
@@ -142,7 +142,7 @@
     font-weight: 600;
     border-radius: 25px;
     transition: all 0.3s ease;
-    opacity: 0; /* Initial state */
+    opacity: 0;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -194,7 +194,7 @@
     margin: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    opacity: 0; /* Initial state */
+    opacity: 0;
 }
 
 .hero-bio.animate {
@@ -212,7 +212,7 @@
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 10px;
-    opacity: 0; /* Initial state */
+    opacity: 0;
 }
 
 .bento-title.animate {
@@ -241,7 +241,7 @@
     background: #1a1a1a;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    opacity: 0; /* Initial state */
+    opacity: 0;
 }
 
 .tech-icons i.animate {
@@ -272,7 +272,7 @@
     color: #8eff54;
     font-size: 14px;
     transition: all 0.3s ease;
-    opacity: 0; /* Initial state */
+    opacity: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -292,7 +292,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 15px; /* Added bottom margin for spacing */
+    margin-bottom: 15px;
 }
 
 .intro-text {
@@ -303,9 +303,9 @@
 
 .roles-container {
     position: relative;
-    height: 24px; /* Adjust based on font size */
+    height: 24px;
     overflow: hidden;
-    min-width: 200px; /* Ensure enough space for longest role */
+    min-width: 200px;
 }
 
 .role {
@@ -317,7 +317,7 @@
     font-weight: 600;
     opacity: 0;
     transform: translateY(20px);
-    animation: cycle-roles 12s infinite; /* Adjust duration based on number of roles */
+    animation: cycle-roles 8s infinite; /* Reduced from 12s to 8s */
     width: 100%;
 }
 
@@ -351,15 +351,15 @@
 }
 
 .role:nth-child(2) {
-    animation-delay: 3s; /* Show after first role */
+    animation-delay: 2s; /* Reduced from 3s */
 }
 
 .role:nth-child(3) {
-    animation-delay: 6s; /* Show after second role */
+    animation-delay: 4s; /* Reduced from 6s */
 }
 
 .role:nth-child(4) {
-    animation-delay: 9s; /* Show after third role */
+    animation-delay: 6s; /* Reduced from 9s */
 }
 
 /* Animation Keyframes */
@@ -386,29 +386,28 @@
 /* Media Queries for Mobile */
 @media (max-width: 768px) {
     .hero {
-        height: auto; /* Allow height to adjust based on content */
-        padding: 15px; /* Reduce padding for smaller screens */
-        margin: 5px auto; /* Adjust margin */
+        height: auto;
+        padding: 15px;
+        margin: 5px auto;
     }
 
     .bento-grid {
-        grid-template-columns: 1fr; /* Single column layout */
-        grid-template-rows: auto; /* Auto rows for stacking */
-        gap: 15px; /* Reduce gap between items */
-        height: auto; /* Let height adjust naturally */
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 15px;
+        height: auto;
     }
 
-    /* Adjust specific box styling for mobile */
     .bento-portrait {
-        grid-column: 1 / 2; /* Full width */
-        grid-row: auto; /* Auto row placement */
-        height: 300px; /* Fixed height for portrait image */
+        grid-column: 1 / 2;
+        grid-row: auto;
+        height: 300px;
     }
 
     .bento-intro {
         grid-column: 1 / 2;
         grid-row: auto;
-        padding: 15px; /* Reduce padding */
+        padding: 15px;
     }
 
     .bento-bio {
@@ -426,27 +425,25 @@
         grid-row: auto;
     }
 
-    /* Adjust typography for mobile */
     .hero-title {
-        font-size: 32px; /* Smaller title */
+        font-size: 32px;
         margin-bottom: 8px;
     }
 
     .hero-tagline {
-        font-size: 16px; /* Slightly smaller tagline */
+        font-size: 16px;
         margin-bottom: 15px;
     }
 
     .hero-bio {
-        font-size: 13px; /* Smaller bio text */
+        font-size: 13px;
         line-height: 1.6;
     }
 
     .bento-title {
-        font-size: 13px; /* Smaller bento titles */
+        font-size: 13px;
     }
 
-    /* Adjust button size */
     .hero-btn {
         font-size: 14px;
         padding: 10px 15px;
@@ -461,7 +458,6 @@
         font-size: 14px;
     }
 
-    /* Ensure tech icons and social links fit well */
     .tech-icons i {
         font-size: 18px;
         width: 32px;
@@ -475,11 +471,10 @@
         font-size: 13px;
     }
 
-    /* Adjust role animation for mobile */
     .roles-container {
-        height: 20px; /* Adjust for smaller font */
-        min-width: 180px; /* Smaller width for mobile */
-        margin-bottom: 3px; /* Smaller bottom margin for mobile */
+        height: 20px;
+        min-width: 180px;
+        margin-bottom: 3px;
     }
 
     .intro-text {

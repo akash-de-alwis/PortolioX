@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Trigger animation with delay based on index
             setTimeout(() => {
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                card.style.transition = 'opacity 1s ease, transform 0.5s ease';
                 card.style.opacity = '1';
                 card.style.transform = 'translateY(0)';
             }, index * 150); // Staggered delay for each card (150ms apart)

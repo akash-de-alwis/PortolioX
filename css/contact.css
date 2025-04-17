@@ -146,12 +146,13 @@
     height: 40px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: #fff !important;
     font-size: 16px;
     transition: all 0.3s ease;
+    opacity: 1 !important;
 }
 
 .social-link:hover {
@@ -271,7 +272,6 @@
     transform: translateX(5px);
 }
 
-
 /* Sending Animation */
 .sending-animation {
     position: absolute;
@@ -365,7 +365,6 @@
     80% { transform: scale(1.2); }
     100% { transform: scale(1); }
 }
-
 
 /* Media Queries for Responsiveness */
 @media (max-width: 992px) {

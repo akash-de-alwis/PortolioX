@@ -478,7 +478,7 @@
     /* Adjust role animation for mobile */
     .roles-container {
         height: 20px; /* Adjust for smaller font */
-        min-width: 150px; /* Smaller width for mobile */
+        min-width: 180px; /* Smaller width for mobile */
         margin-bottom: 3px; /* Smaller bottom margin for mobile */
     }
 

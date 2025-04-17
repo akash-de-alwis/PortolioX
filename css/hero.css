@@ -90,6 +90,7 @@
 .bento-tech {
     grid-column: 4 / 5;
     grid-row: 2 / 3;
+    text-align: center;
 }
 
 .bento-connect {
@@ -286,6 +287,81 @@
     box-shadow: 0 4px 12px rgba(142, 255, 84, 0.3);
 }
 
+/* Role Animation */
+.text-chnager {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px; /* Added bottom margin for spacing */
+}
+
+.intro-text {
+    color: #ddd;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.roles-container {
+    position: relative;
+    height: 24px; /* Adjust based on font size */
+    overflow: hidden;
+    min-width: 200px; /* Ensure enough space for longest role */
+}
+
+.role {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #8eff54;
+    font-size: 18px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cycle-roles 12s infinite; /* Adjust duration based on number of roles */
+    width: 100%;
+}
+
+/* Animation for each role */
+@keyframes cycle-roles {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    5% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    25% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    30% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Stagger the animation for each role */
+.role:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.role:nth-child(2) {
+    animation-delay: 3s; /* Show after first role */
+}
+
+.role:nth-child(3) {
+    animation-delay: 6s; /* Show after second role */
+}
+
+.role:nth-child(4) {
+    animation-delay: 9s; /* Show after third role */
+}
+
 /* Animation Keyframes */
 @keyframes fadeInUp {
     from {
@@ -397,5 +473,20 @@
         width: 28px;
         height: 28px;
         font-size: 13px;
+    }
+
+    /* Adjust role animation for mobile */
+    .roles-container {
+        height: 20px; /* Adjust for smaller font */
+        min-width: 150px; /* Smaller width for mobile */
+        margin-bottom: 3px; /* Smaller bottom margin for mobile */
+    }
+
+    .intro-text {
+        font-size: 16px;
+    }
+
+    .role {
+        font-size: 16px;
     }
 }

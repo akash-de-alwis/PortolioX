@@ -1,0 +1,52 @@
+/* Custom Cursor Styles */
+.custom-cursor {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(142, 255, 84, 0.2); /* Semi-transparent green */
+    border: 2px solid #8eff54;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%); /* Center cursor on mouse */
+    transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.3s ease;
+    opacity: 0; /* Hidden initially */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #8eff54;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(142, 255, 84, 0.3);
+}
+
+.custom-cursor::before {
+    content: '</>'; /* Code icon */
+    font-family: 'Roboto', sans-serif;
+}
+
+.custom-cursor.cursor-visible {
+    opacity: 1; /* Fade in after page load */
+}
+
+.custom-cursor.cursor-hover {
+    transform: translate(-50%, -50%) scale(1.2); /* Slightly larger on hover */
+    background-color: rgba(142, 255, 84, 0.4); /* More opaque on hover */
+    border-color: #7de048;
+}
+
+/* Hide default cursor on desktop */
+body {
+    cursor: none; /* Hide default cursor */
+}
+
+/* Ensure default cursor is visible on mobile */
+@media (max-width: 768px) {
+    body {
+        cursor: auto; /* Restore default cursor */
+    }
+    .custom-cursor {
+        display: none !important; /* Hide custom cursor */
+    }
+}

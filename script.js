@@ -1,5 +1,13 @@
-// script.js
 document.addEventListener('DOMContentLoaded', function() {
+    const preloader = document.querySelector('.preloader');
+    
+    // Hide preloader after a minimum display time
+    setTimeout(() => {
+        preloader.classList.add('hidden');
+        // Ensure body overflow is restored after preloader hides
+        document.body.style.overflow = '';
+    }, 2000); // 2 seconds minimum display time
+
     const fadeElements = document.querySelectorAll('.fade-in');
     const header = document.querySelector('.header');
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');

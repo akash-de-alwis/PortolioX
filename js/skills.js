@@ -11,16 +11,18 @@ document.addEventListener('DOMContentLoaded', function() {
             item.style.transform = 'translateY(20px)';
             item.style.transition = 'none';
 
-            // Reset progress bar by removing and re-adding the animation
+            // Get progress bar and percentage
             const progressBar = item.querySelector('.skill-progress');
+            const percentage = item.querySelector('.skill-percentage').textContent; // e.g., "90%"
+
             if (progressBar) {
-                const progressBefore = progressBar.querySelector('::before');
-                progressBar.style.setProperty('--progress-width', progressBar.style.getPropertyValue('--progress-width')); // Preserve the width
-                progressBar.classList.remove('animate-progress'); // Remove animation class if present
-                void progressBar.offsetWidth; // Force reflow to reset animation
+                // Set custom property for progress width
+                progressBar.style.setProperty('--progress-width', percentage);
+                progressBar.classList.remove('animate-progress'); // Remove animation class
+                void progressBar.offsetWidth; // Force reflow
             }
 
-            // Trigger animation with delay based on index
+            // Trigger animation with delay
             setTimeout(() => {
                 // Animate skill item
                 item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -29,24 +31,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Animate progress bar
                 if (progressBar) {
-                    progressBar.classList.add('animate-progress'); // Add class to trigger animation
+                    progressBar.classList.add('animate-progress');
                 }
-            }, index * 150); // Staggered delay for each item (150ms apart)
+            }, index * 150); // Staggered delay
         });
     }
 
-    // Intersection Observer to detect when the skills section is in view
+    // Intersection Observer
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                animateSkillsSection(); // Trigger animation when section is in view
+                animateSkillsSection();
             }
         });
     }, {
-        threshold: 0.3 // Trigger when 30% of the section is visible
+        threshold: 0.3
     });
 
-    // Observe the skills section
+    // Observe skills section
     if (skillsSection) {
         observer.observe(skillsSection);
     }

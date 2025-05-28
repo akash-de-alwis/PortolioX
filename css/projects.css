@@ -13,6 +13,21 @@
     width: 100%;
 }
 
+/* Add or update dropdown-tag class */
+.dropdown-tag {
+    background-color: rgba(142, 255, 84, 0.1); /* Matches skill-icon background */
+    color: #8eff54; /* Matches skill-icon color */
+    padding: 6px 12px;
+    border-radius: 20px; /* Pill-shaped like skill-tag */
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items:self-end;
+    justify-content: left;
+    z-index: 1;
+}
+
+/* Ensure projects-header supports right-side alignment */
 .projects-header {
     display: flex;
     justify-content: space-between;
@@ -24,6 +39,7 @@
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .projects-header:hover {

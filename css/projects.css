@@ -13,7 +13,7 @@
     width: 100%;
 }
 
-/* Add or update dropdown-tag class */
+/* Add or update dropdown-tag class with blinking animation */
 .dropdown-tag {
     background-color: rgba(142, 255, 84, 0.1); /* Matches skill-icon background */
     color: #8eff54; /* Matches skill-icon color */
@@ -22,9 +22,20 @@
     font-size: 12px;
     font-weight: 600;
     display: inline-flex;
-    align-items:self-end;
+    align-items: self-end;
     justify-content: left;
     z-index: 1;
+    animation: blink 1.5s ease-in-out infinite; /* Add blinking animation */
+}
+
+/* Blinking animation keyframes */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
 }
 
 /* Ensure projects-header supports right-side alignment */

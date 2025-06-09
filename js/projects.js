@@ -1,7 +1,10 @@
-// projects.js
 document.addEventListener('DOMContentLoaded', function() {
     const projectsSection = document.querySelector('.projects-section');
     const projectCards = document.querySelectorAll('.project-card');
+    const projectsHeader = document.querySelector('.projects-header');
+    const projectsContent = document.querySelector('.projects-content');
+    const dropdownArrow = document.querySelector('.dropdown-arrow');
+    let isManuallyToggled = false; // Track manual interaction
 
     // Function to reset and animate project cards
     function animateProjectsSection() {
@@ -20,11 +23,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Function to toggle dropdown
+    function toggleDropdown() {
+        projectsHeader.classList.toggle('active');
+        projectsContent.classList.toggle('active');
+
+        // Dynamically set max-height for smooth transition
+        if (projectsContent.classList.contains('active')) {
+            projectsContent.style.maxHeight = projectsContent.scrollHeight + 'px';
+        } else {
+            projectsContent.style.maxHeight = '0';
+        }
+    }
+
+    // Function to open dropdown
+    function openDropdown() {
+        if (!projectsContent.classList.contains('active')) {
+            toggleDropdown();
+        }
+    }
+
+    // Manual toggle event listener
+    if (projectsHeader) {
+        projectsHeader.addEventListener('click', () => {
+            isManuallyToggled = true; // Mark as manually toggled
+            toggleDropdown();
+        });
+    }
+
     // Intersection Observer to detect when the projects section is in view
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                animateProjectsSection(); // Trigger animation when section is in view
+                animateProjectsSection(); // Trigger card animations
+                if (!isManuallyToggled) {
+                    openDropdown(); // Auto-open only if not manually toggled
+                }
             }
         });
     }, {

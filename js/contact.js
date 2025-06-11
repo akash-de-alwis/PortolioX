@@ -46,4 +46,66 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactSection) {
         observer.observe(contactSection);
     }
+
+
+    // Initialize EmailJS with your User ID
+    emailjs.init('C5d_NhrPTY9qF3K2e'); // Your EmailJS User ID
+    
+    // Contact Form Submission with EmailJS
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        const sendingAnimation = document.getElementById('sending-animation');
+        const successMessage = document.getElementById('success-message');
+        const form = this;
+
+        if (name && email && subject && message) {
+            // Show sending animation
+            sendingAnimation.style.display = 'flex';
+            setTimeout(() => sendingAnimation.classList.add('active'), 10);
+
+            // EmailJS parameters
+            const params = {
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: message,
+            };
+
+            // Send email using EmailJS
+            emailjs.send('service_fev76ec', 'template_xkgbdth', params)
+                .then(() => {
+                    // Hide sending animation
+                    sendingAnimation.classList.remove('active');
+                    setTimeout(() => sendingAnimation.style.display = 'none', 300);
+
+                    // Show success message
+                    successMessage.style.display = 'flex';
+                    setTimeout(() => successMessage.classList.add('active'), 10);
+
+                    // Reset form
+                    form.reset();
+
+                    // Hide success message after 3 seconds
+                    setTimeout(() => {
+                        successMessage.classList.remove('active');
+                        setTimeout(() => successMessage.style.display = 'none', 300);
+                    }, 3000);
+                }, (error) => {
+                    console.error('EmailJS Error:', error);
+                    // Hide sending animation
+                    sendingAnimation.classList.remove('active');
+                    setTimeout(() => sendingAnimation.style.display = 'none', 300);
+
+                    // Show error alert
+                    alert('Oops! Something went wrong. Please try again later.');
+                });
+        } else {
+            alert('Please fill in all fields.');
+        }
+    });
 });

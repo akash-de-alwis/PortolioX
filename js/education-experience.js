@@ -73,4 +73,5 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 100); // 100ms delay to ensure tab content is visible
         });
     });
+    
 });

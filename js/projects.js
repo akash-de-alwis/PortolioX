@@ -4,7 +4,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectsHeader = document.querySelector('.projects-header');
     const projectsContent = document.querySelector('.projects-content');
     const dropdownArrow = document.querySelector('.dropdown-arrow');
+     const projectFilters = document.querySelectorAll('.project-filter');
     let isManuallyToggled = false; // Track manual interaction
+
+    // Projects Filter Functionality
+
+    projectFilters.forEach(filter => {
+        filter.addEventListener('click', function() {
+            projectFilters.forEach(f => f.classList.remove('active'));
+            this.classList.add('active');
+
+            const filterValue = this.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filterValue === 'all' || category === filterValue) {
+                    card.classList.remove('hidden');
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Recalculate height immediately after filtering
+            if (projectsContent.classList.contains('active')) {
+                projectsContent.style.maxHeight = 'none'; // Reset to natural height
+                requestAnimationFrame(() => {
+                    projectsContent.style.maxHeight = projectsContent.scrollHeight + 'px';
+                });
+            }
+        });
+    });
 
     // Function to reset and animate project cards
     function animateProjectsSection() {

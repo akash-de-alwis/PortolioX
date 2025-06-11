@@ -7,10 +7,12 @@
 .services-header p {
     font-size: 18px;
     color: #cccccc;
-    line-height: 1.5;
-    margin: 10px 0 0;
+    line-height: 1.6;
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 20px auto 40px auto;
+    position: relative;
 }
 .choice-container {
     max-width: 1200px;
@@ -195,6 +197,12 @@
     
     .choice-reasons-wrapper {
         padding: 40px 16px;
+    }
+
+    .services-section {
+         font-size: 16px;
+        max-width: 100%;
+        line-height: 1.5;
     }
 }
 

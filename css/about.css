@@ -8,6 +8,7 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: auto; /* Remove z-index to allow side button to show */
 }
 
 .about-container {
@@ -74,7 +75,7 @@
     grid-template-rows: auto auto;
     gap: 20px;
     width: 100%;
-    z-index: 1;
+    z-index: auto; /* Remove z-index to prevent blocking side button */
     position: relative;
     margin: 0 auto;
 }
@@ -117,7 +118,6 @@
     border-radius: 20px;
     transition: transform 0.5s ease;
 }
-
 
 .about-image-box:hover .about-decoration {
     opacity: 1;
@@ -179,6 +179,7 @@
     grid-column: 3 / 6;
     grid-row: 1 / 2;
     background: #3a3a3a;
+    position: relative;
 }
 
 .about-intro {
@@ -249,6 +250,63 @@
     text-decoration: underline;
 }
 
+/* Social Icons */
+.social-icons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    color: #8eff54;
+    font-size: 20px;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #2a2a2a;
+    border-radius: 10px;
+}
+
+.social-icons a:hover {
+    color: #7de048;
+}
+
+/* Social Section for Mobile */
+.social-section {
+    display: none;
+    justify-content: center;
+    gap: 25px; /* Increased from 15px to 25px for more spacing */
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-section a {
+    color: #8eff54;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: rgba(142, 255, 84, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(142, 255, 84, 0.2);
+}
+
+.social-section a:hover {
+    background: rgba(142, 255, 84, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(142, 255, 84, 0.2);
+    color: #ffffff;
+}
+
 /* Animation Keyframes */
 @keyframes fadeInUp {
     from {
@@ -261,71 +319,33 @@
     }
 }
 
-/* Media Queries for Mobile */
+/* Media Queries for Mobile - Modern and Clean Design */
 @media (max-width: 768px) {
     .about-section {
-        padding: 15px;
-        margin: 5px auto;
+        padding: 20px 15px;
+        margin: 10px auto;
+        width: 95%;
+        border-radius: 25px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        z-index: auto; /* Remove z-index for mobile to allow side button visibility */
+    }
+
+    .about-container {
+        padding: 0;
+        position: relative;
+        z-index: auto; /* Remove z-index for mobile */
     }
 
     .about-header {
-        margin-bottom: 30px;
+        margin-bottom: 35px;
+        padding: 0 5px;
     }
 
-    .about-bento-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        gap: 15px;
+    .section-title {
+        gap: 10px;
+        margin-bottom: 15px;
     }
 
-    .about-image-wrapper {
-        grid-column: 1 / 2;
-        grid-row: auto;
-        height: 300px;
-    }
-
-    .about-intro-box {
-        grid-column: 1 / 2;
-        grid-row: auto;
-    }
-
-    .personal-info-box {
-        grid-column: 1 / 2;
-        grid-row: auto;
-    }
-
-    .cta-container {
-        bottom: 15px;
-        right: 15px;
-    }
-
-    .about-intro {
-        font-size: 20px;
-    }
-
-    .about-short-desc {
-        font-size: 16px;
-    }
-
-    .about-description {
-        font-size: 14px;
-    }
-
-    .hero-btn {
-        font-size: 14px;
-    }
-
-    .arrow-circle {
-        width: 30px;
-        height: 30px;
-    }
-
-    .arrow-circle i {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
     .section-title h2 {
         font-size: 28px;
     }
@@ -334,21 +354,323 @@
         font-size: 16px;
         padding: 5px 14px;
     }
-    
-    .cta-container {
-        bottom: 10px;
-        right: 10px;
-    }
-    
-    .about-intro {
-        font-size: 18px;
-    }
-    
-    .about-short-desc {
-        font-size: 14px;
-    }
-    
+
     .about-header p {
         font-size: 16px;
+        max-width: 100%;
+        line-height: 1.5;
     }
+
+    .about-header p::after {
+        width: 40px;
+        height: 2px;
+        margin: 20px auto 0;
+    }
+
+    /* Modern Mobile Grid Layout */
+    .about-bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 20px;
+        margin: 0;
+    }
+
+    /* Image Box - Enhanced Mobile Design */
+    .about-image-wrapper {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        height: 280px;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-image-box {
+        border-radius: 25px;
+        background: linear-gradient(135deg, rgba(142, 255, 84, 0.1), rgba(142, 255, 84, 0.05));
+    }
+
+    .about-image {
+        border-radius: 25px;
+        filter: brightness(0.95);
+        transition: all 0.4s ease;
+    }
+
+    .about-image-box:hover .about-image {
+        transform: scale(1.02);
+        filter: brightness(1);
+    }
+
+    /* CTA Button - Mobile Optimized */
+    .cta-container {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .hero-btn {
+        font-size: 14px;
+        padding: 10px 16px;
+        border-radius: 20px;
+        box-shadow: 0 6px 15px rgba(142, 255, 84, 0.25);
+    }
+
+    .arrow-circle {
+        width: 32px;
+        height: 32px;
+    }
+
+    .arrow-circle i {
+        font-size: 12px;
+    }
+
+    /* About Intro Box - Enhanced Mobile */
+    .about-intro-box {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        background: linear-gradient(135deg, #2a2a2a, #252525);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 25px;
+        padding: 25px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .about-intro-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(142, 255, 84, 0.3), transparent);
+    }
+
+    .about-intro {
+        font-size: 22px;
+        margin-bottom: 12px;
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    .about-short-desc {
+        font-size: 16px;
+        margin-bottom: 15px;
+        color: #8eff54;
+        font-weight: 500;
+    }
+
+    .about-description {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #cccccc;
+        margin-bottom: 0;
+        text-align: justify;
+    }
+
+    /* Hide desktop social icons on mobile */
+    .social-icons {
+        display: none;
+    }
+
+    /* Show mobile social section with increased spacing */
+    .social-section {
+        display: flex;
+        gap: 30px; /* Increased from 25px to 30px for even more spacing on mobile */
+    }
+
+    /* Personal Info Box - Modern Mobile Design */
+    .personal-info-box {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+        background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+        border: 1px solid rgba(142, 255, 84, 0.2);
+        border-radius: 25px;
+        padding: 25px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .personal-info-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #8eff54, transparent);
+        opacity: 0.6;
+    }
+
+    .personal-info {
+        gap: 15px;
+    }
+
+    .info-item {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        transition: all 0.3s ease;
+    }
+
+    .info-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .info-item:hover {
+        background: rgba(142, 255, 84, 0.03);
+        margin: 0 -10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 8px;
+    }
+
+    .info-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #8eff54;
+        letter-spacing: 0.5px;
+    }
+
+    .info-value {
+        font-size: 14px;
+        color: #ffffff;
+        font-weight: 500;
+    }
+
+    .info-value a {
+        color: #8eff54;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .info-value a:hover {
+        color: #7de048;
+        text-shadow: 0 0 8px rgba(142, 255, 84, 0.3);
+    }
+
+    /* Hover Effects for Mobile Boxes */
+    .about-bento-box:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .about-section {
+        padding: 15px 10px;
+        margin: 5px auto;
+        border-radius: 20px;
+    }
+
+    .about-header {
+        margin-bottom: 25px;
+    }
+
+    .section-title h2 {
+        font-size: 24px;
+    }
+
+    .title-tag {
+        font-size: 14px;
+        padding: 4px 12px;
+    }
+
+    .about-header p {
+        font-size: 15px;
+    }
+
+    .about-bento-grid {
+        gap: 15px;
+    }
+
+    .about-image-wrapper {
+        height: 250px;
+    }
+
+    .about-intro-box,
+    .personal-info-box {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .about-intro {
+        font-size: 20px;
+    }
+
+    .about-short-desc {
+        font-size: 15px;
+    }
+
+    .about-description {
+        font-size: 14px;
+    }
+
+    .cta-container {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .hero-btn {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    .arrow-circle {
+        width: 28px;
+        height: 28px;
+    }
+
+    .social-icons {
+        top: 10px;
+        right: 10px;
+        gap: 6px;
+    }
+
+    .social-icons a {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    .info-item {
+        padding: 10px 0;
+    }
+
+    .info-label {
+        font-size: 12px;
+    }
+
+    .info-value {
+        font-size: 13px;
+    }
+
+    /* Social section spacing for small mobile devices */
+    .social-section {
+        gap: 35px; /* Slightly reduced for smaller screens but still more than original */
+    }
+}
+
+/* Side Button */
+.side-button {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #8eff54;
+    padding: 15px 10px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-weight: 600;
+    color: #000;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 9999; /* High z-index to ensure it stays on top of all content */
+}
+
+.side-button:hover {
+    padding-left: 20px;
 }

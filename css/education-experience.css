@@ -2,9 +2,9 @@
 .education-experience-section {
     background-color: rgba(30, 30, 30, 0.7);
     border-radius: 30px;
-    padding: 50px;
-    margin: 30px auto;
-    width: 95%;
+    padding: 30px;
+    margin: 20px auto;
+    width: 90%;
     position: relative;
 }
 
@@ -13,15 +13,15 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     position: relative;
 }
 
 .education-experience-header p {
-    font-size: 18px;
+    font-size: 16px;
     color: #cccccc;
     line-height: 1.6;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
     position: relative;
 }
@@ -29,22 +29,22 @@
 .education-experience-header p::after {
     content: '';
     display: block;
-    width: 50px;
+    width: 40px;
     height: 3px;
     background-color: #8eff54;
-    margin: 25px auto 0;
+    margin: 20px auto 0;
     border-radius: 2px;
 }
 
 .tabs-container {
-    margin-top: 20px;
+    margin-top: 15px;
     position: relative;
 }
 
 .tabs-navigation {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     position: relative;
     z-index: 1;
 }
@@ -52,7 +52,7 @@
 .tab-button {
     background-color: rgba(25, 25, 25, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 12px 25px;
+    padding: 10px 20px;
     color: #ffffff;
     font-weight: 600;
     cursor: pointer;
@@ -61,11 +61,11 @@
 }
 
 .tab-button:first-child {
-    border-radius: 20px 0 0 20px;
+    border-radius: 15px 0 0 15px;
 }
 
 .tab-button:last-child {
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 15px 15px 0;
 }
 
 .tab-button.active {
@@ -90,7 +90,7 @@
 
 .timeline {
     position: relative;
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -107,21 +107,21 @@
 }
 
 .timeline-item {
-    padding: 15px 30px;
+    padding: 10px 20px;
     position: relative;
-    width: 50%;
+    width: 45%;
     box-sizing: border-box;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .timeline-item::after {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     background-color: #8eff54;
     border-radius: 50%;
-    top: 18px;
+    top: 15px;
     z-index: 1;
 }
 
@@ -131,23 +131,23 @@
 }
 
 .timeline-item:nth-child(even) {
-    left: 50%;
+    left: 55%;
     text-align: left;
 }
 
 .timeline-item:nth-child(odd)::after {
-    right: -10px;
+    right: -7.5px;
 }
 
 .timeline-item:nth-child(even)::after {
-    left: -10px;
+    left: -7.5px;
 }
 
 .timeline-content {
     background-color: rgba(25, 25, 25, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 20px;
+    border-radius: 10px;
+    padding: 15px;
     transition: all 0.3s ease;
 }
 
@@ -161,45 +161,45 @@
 .timeline-date {
     background-color: rgba(142, 255, 84, 0.2);
     color: #8eff54;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 15px;
+    font-size: 12px;
     font-weight: 600;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .timeline-title {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 5px;
     font-weight: 600;
 }
 
 .timeline-subtitle {
     color: #aaa;
-    font-size: 16px;
-    margin-bottom: 15px;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .timeline-description {
     color: #ddd;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 1.6;
 }
 
 .skills-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 8px;
+    margin-top: 10px;
 }
 
 .skill-tag {
     background-color: rgba(142, 255, 84, 0.1);
     color: #8eff54;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 13px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
     font-weight: 500;
     transition: all 0.3s ease;
 }
@@ -207,4 +207,74 @@
 .skill-tag:hover {
     background-color: rgba(142, 255, 84, 0.2);
     transform: translateY(-2px);
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+    .education-experience-section {
+        padding: 15px;
+        margin: 10px auto;
+        width: 95%;
+    }
+
+    .education-experience-header p {
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    .tabs-navigation {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tab-button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .tab-button:first-child,
+    .tab-button:last-child {
+        border-radius: 10px;
+    }
+
+    .timeline::after {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left;
+        padding-left: 40px;
+        padding-right: 15px;
+    }
+
+    .timeline-item::after {
+        left: 12.5px;
+        right: auto;
+        top: 12px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+        text-align: left;
+    }
+
+    .timeline-content {
+        padding: 12px;
+    }
+
+    .timeline-title {
+        font-size: 16px;
+    }
+
+    .timeline-subtitle {
+        font-size: 13px;
+    }
+
+    .timeline-description {
+        font-size: 12px;
+    }
 }

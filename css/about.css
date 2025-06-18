@@ -380,7 +380,7 @@
         .about-image-wrapper {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
-        height: 350px; /* Increased from 280px to 350px */
+        height: 550px; /* Increased from 280px to 350px */
         border-radius: 25px;
         overflow: hidden;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -587,7 +587,7 @@
     }
 
     .about-image-wrapper {
-        height: 250px;
+        height: 350px;
     }
 
     .about-intro-box,

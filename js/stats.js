@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to reset and animate stats
     function animateStats() {
         statNumbers.forEach(number => {
-            const target = parseInt(number.getAttribute('data-target'));
+            const target = parseInt(number.getAttribute('data-target')) || 0; // Fallback to 0 if NaN
             number.textContent = '0'; // Reset to 0 before animating
             animateCount(number, 0, target, 2000);
         });
@@ -51,26 +51,45 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(statsSection);
     }
 
-async function fetchGitHubStats() {
-    localStorage.removeItem('repoCount'); // Clear cache for testing
-    try {
-        const response = await fetch('https://api.github.com/users/akash-de-alwis/repos', {
-            headers: { 'Authorization': 'Bearer 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' }
-        });
-        if (!response.ok) throw new Error('API request failed');
-        const repos = await response.json();
-        console.log('API Response:', repos); // Debug log
-        const publicRepos = repos.filter(repo => !repo.private && !repo.fork);
-        const projectStat = document.querySelector('.stat-item:nth-child(1) .stat-number');
-        projectStat.setAttribute('data-target', publicRepos.length || 0);
-        localStorage.setItem('repoCount', publicRepos.length);
-        animateStats();
-    } catch (error) {
-        console.error('Error fetching GitHub stats:', error);
-        const projectStat = document.querySelector('.stat-item:nth-child(1) .stat-number');
-        projectStat.setAttribute('data-target', 0);
-        animateStats();
+    async function fetchGitHubStats() {
+        localStorage.removeItem('repoCount'); // Clear cache for testing
+        try {
+            const response = await fetch('https://api.github.com/users/akash-de-alwis/repos', {
+                headers: { 
+                    'Authorization': 'Bearer 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', // Replace with new valid token
+                    'Accept': 'application/vnd.github+json',
+                    'X-GitHub-Api-Version': '2022-11-28'
+                }
+            });
+            if (!response.ok) {
+                if (response.status === 403 || response.status === 429) {
+                    const resetTime = response.headers.get('x-ratelimit-reset');
+                    const waitTime = resetTime ? (parseInt(resetTime) - Math.floor(Date.now() / 1000)) : 60;
+                    console.warn(`Rate limit exceeded. Waiting ${waitTime} seconds.`);
+                    await new Promise(resolve => setTimeout(resolve, waitTime * 1000));
+                    return fetchGitHubStats(); // Retry after waiting
+                }
+                const errorData = await response.json();
+                console.error('API Error:', errorData); // Log detailed error
+                throw new Error(`API request failed: ${response.status}`);
+            }
+            const repos = await response.json();
+            console.log('API Response:', repos); // Debug log
+            // Ensure repos is an array and filter for public, non-forked repos
+            const publicRepos = Array.isArray(repos) ? repos.filter(repo => !repo.private && !repo.fork) : [];
+            const repoCount = publicRepos.length || 0;
+            console.log('Public Non-Forked Repos:', publicRepos, 'Count:', repoCount); // Debug count
+            const projectStat = document.querySelector('.stat-item:nth-child(1) .stat-number');
+            projectStat.setAttribute('data-target', repoCount);
+            localStorage.setItem('repoCount', repoCount);
+            animateStats();
+        } catch (error) {
+            console.error('Error fetching GitHub stats:', error);
+            const projectStat = document.querySelector('.stat-item:nth-child(1) .stat-number');
+            projectStat.setAttribute('data-target', 0); // Fallback to 0
+            animateStats();
+        }
     }
-}
+
     fetchGitHubStats();
 });

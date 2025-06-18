@@ -51,16 +51,26 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(statsSection);
     }
 
-    async function fetchGitHubStats() {
-        try {
-            const response = await fetch('https://api.github.com/users/akash-de-alwis/repos');
-            const repos = await response.json();
-            const projectStat = document.querySelector('.stat-item:nth-child(1) .stat-number');
-            projectStat.setAttribute('data-target', repos.length);
-            animateStats(); // Re-run animation with updated values
-        } catch (error) {
-            console.error('Error fetching GitHub stats:', error);
-        }
+async function fetchGitHubStats() {
+    localStorage.removeItem('repoCount'); // Clear cache for testing
+    try {
+        const response = await fetch('https://api.github.com/users/akash-de-alwis/repos', {
+            headers: { 'Authorization': 'Bearer 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' }
+        });
+        if (!response.ok) throw new Error('API request failed');
+        const repos = await response.json();
+        console.log('API Response:', repos); // Debug log
+        const publicRepos = repos.filter(repo => !repo.private && !repo.fork);
+        const projectStat = document.querySelector('.stat-item:nth-child(1) .stat-number');
+        projectStat.setAttribute('data-target', publicRepos.length || 0);
+        localStorage.setItem('repoCount', publicRepos.length);
+        animateStats();
+    } catch (error) {
+        console.error('Error fetching GitHub stats:', error);
+        const projectStat = document.querySelector('.stat-item:nth-child(1) .stat-number');
+        projectStat.setAttribute('data-target', 0);
+        animateStats();
     }
+}
     fetchGitHubStats();
 });

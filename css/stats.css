@@ -53,7 +53,7 @@
 
 .stat-item:hover {
     background-color: rgba(35, 35, 35, 0.9);
-    transform: translateY(-3px);
+    transform: translateY(-5px); /* Increased for consistency */
     border-color: rgba(142, 255, 84, 0.5);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
@@ -64,7 +64,6 @@
     color: #8eff54;
     margin-bottom: 10px;
     display: block;
-    transition: color 0.3s ease; /* Smooth color transition if needed */
 }
 
 .stat-label {
@@ -81,7 +80,7 @@
     }
 
     .stats-content {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjusted for better fit */
         gap: 15px;
     }
 
@@ -101,11 +100,11 @@
 @media (max-width: 480px) {
     .stats-content {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 12px; /* Increased for readability */
     }
 
     .stat-item {
-        padding: 15px;
+        padding: 18px;
     }
 
     .stat-number {
@@ -114,5 +113,27 @@
 
     .stat-label {
         font-size: 13px;
+    }
+}
+
+@media (max-width: 320px) {
+    .stats-section {
+        padding: 20px;
+    }
+
+    .stats-content {
+        gap: 10px;
+    }
+
+    .stat-item {
+        padding: 15px;
+    }
+
+    .stat-number {
+        font-size: 26px;
+    }
+
+    .stat-label {
+        font-size: 12px;
     }
 }

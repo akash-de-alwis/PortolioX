@@ -50,49 +50,5 @@ document.addEventListener('DOMContentLoaded', function() {
     if (statsSection) {
         observer.observe(statsSection);
     }
-
-    // Comment out or remove API call
-    /*
-    async function fetchGitHubStats() {
-        localStorage.removeItem('repoCount');
-        try {
-            const response = await fetch('https://api.github.com/users/akash-de-alwis/repos', {
-                headers: { 
-                    'Authorization': 'Bearer YOUR_NEW_TOKEN_HERE',
-                    'Accept': 'application/vnd.github+json',
-                    'X-GitHub-Api-Version': '2022-11-28'
-                }
-            });
-            if (!response.ok) {
-                if (response.status === 403 || response.status === 429) {
-                    const resetTime = response.headers.get('x-ratelimit-reset');
-                    const waitTime = resetTime ? (parseInt(resetTime) - Math.floor(Date.now() / 1000)) : 60;
-                    console.warn(`Rate limit exceeded. Waiting ${waitTime} seconds.`);
-                    await new Promise(resolve => setTimeout(resolve, waitTime * 1000));
-                    return fetchGitHubStats();
-                }
-                const errorData = await response.json();
-                console.error('API Error:', errorData);
-                throw new Error(`API request failed: ${response.status}`);
-            }
-            const repos = await response.json();
-            console.log('API Response:', repos);
-            const publicRepos = Array.isArray(repos) ? repos.filter(repo => !repo.private && !repo.fork) : [];
-            const repoCount = publicRepos.length || 0;
-            console.log('Public Non-Forked Repos:', publicRepos, 'Count:', repoCount);
-            const projectStat = document.querySelector('.stat-item:nth-child(1) .stat-number');
-            projectStat.setAttribute('data-target', repoCount);
-            localStorage.setItem('repoCount', repoCount);
-            animateStats();
-        } catch (error) {
-            console.error('Error fetching GitHub stats:', error);
-            const projectStat = document.querySelector('.stat-item:nth-child(1) .stat-number');
-            projectStat.setAttribute('data-target', 0);
-            animateStats();
-        }
-    }
-
-    fetchGitHubStats();
-    */
     animateStats(); // Trigger animation for hardcoded values
 });

@@ -144,3 +144,40 @@ document.addEventListener('DOMContentLoaded', function() {
     updateActiveNavLink();
 
 });
+
+// Add to your JavaScript (e.g., in stats.js or a separate script)
+document.addEventListener('DOMContentLoaded', function() {
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    document.onkeydown = function(e) {
+        if (
+            e.keyCode === 123 || // F12
+            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I/J
+            (e.ctrlKey && e.keyCode === 85) // Ctrl+U
+        ) {
+            e.preventDefault();
+            return false;
+        }
+    };
+
+    // Detect DevTools opening (approximate method)
+    let devToolsOpen = false;
+    const threshold = 160; // Approximate DevTools width/height
+    setInterval(() => {
+        if (
+            window.outerWidth - window.innerWidth > threshold ||
+            window.outerHeight - window.innerHeight > threshold
+        ) {
+            if (!devToolsOpen) {
+                devToolsOpen = true;
+                // Action when DevTools is detected (e.g., alert or redirect)
+                alert('Developer Tools detected. Access restricted.');
+                // Optionally redirect: window.location.href = '/restricted';
+            }
+        } else {
+            devToolsOpen = false;
+        }
+    }, 1000);
+
+    // Disable right-click (optional)
+    document.addEventListener('contextmenu', e => e.preventDefault());
+});

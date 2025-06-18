@@ -653,15 +653,6 @@
     }
 }
 
-@media (max-width: 768px) {
-    .about-image {
-        content: url('/assests/aboutmemoblie.png'); /* Replace with your new image path */
-        border-radius: 25px;
-        filter: brightness(0.95);
-        transition: all 0.4s ease;
-    }
-}
-
 
 /* Side Button */
 .side-button {

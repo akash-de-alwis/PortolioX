@@ -4,16 +4,33 @@
     background-color: transparent;
 }
 
+.services-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
 .services-header p {
     font-size: 18px;
     color: #cccccc;
     line-height: 1.6;
-    text-align: center;
-    line-height: 1.6;
     max-width: 600px;
-    margin: 20px auto 40px auto;
+    margin: 0 auto;
     position: relative;
 }
+
+.services-header p::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #8eff54;
+    margin: 25px auto 0;
+    border-radius: 2px;
+}
+
 .choice-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -199,8 +216,16 @@
         padding: 40px 16px;
     }
 
+    .services-header {
+        margin-bottom: 10px; /* Increased bottom margin for mobile */
+    }
+
+    .services-header p {
+        margin: 0 16px; /* Added side margins for mobile */
+    }
+
     .services-section {
-         font-size: 16px;
+        font-size: 16px;
         max-width: 100%;
         line-height: 1.5;
     }
@@ -223,5 +248,13 @@
     .choice-arrow-container {
         width: 32px;
         height: 32px;
+    }
+
+    .services-header {
+        margin-bottom: 70px; /* Further increased bottom margin for smaller screens */
+    }
+
+    .services-header p {
+        margin: 0 20px; /* Slightly larger side margins for smaller screens */
     }
 }

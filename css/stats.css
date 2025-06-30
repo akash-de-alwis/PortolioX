@@ -34,6 +34,35 @@
     border-radius: 2px;
 }
 
+.stats-header .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
+}
+
+.stats-header .section-title h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.stats-header .title-tag {
+    background: #8eff54;
+    color: #1a1a1a;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 15px;
+    margin-left: 0;
+    margin-right: 0;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
 .stats-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

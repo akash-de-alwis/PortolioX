@@ -7,9 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
         { selector: '.hero-btn', class: 'animate' },
         { selector: '.hero-bio', class: 'animate' },
         { selector: '.bento-title', class: 'animate', multiple: true },
-        { selector: '.tech-icons i', class: 'animate', multiple: true },
+        { selector: '.bento-tech-top .tech-icons i', class: 'animate', multiple: true },
+        { selector: '.bento-tech-bottom .tech-icons i', class: 'animate', multiple: true },
         { selector: '.social-link', class: 'animate', multiple: true },
-        { selector: '.bento-portrait-img', class: 'animate-fade-in' } // Added for portrait image
+        { selector: '.bento-portrait-img', class: 'animate-fade-in' },
+        { selector: '.bento-intro-side-cards .bento-card', class: 'animate', multiple: true },
+        { selector: '.bento-card', class: 'animate', multiple: true } // <-- Add this line
     ];
 
     // Function to remove animation classes and reset opacity
@@ -18,13 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (item.multiple) {
                 document.querySelectorAll(item.selector).forEach(el => {
                     el.classList.remove(item.class);
-                    el.style.opacity = '0'; // Reset opacity
+                    el.style.opacity = '0';
                 });
             } else {
                 const el = document.querySelector(item.selector);
                 if (el) {
                     el.classList.remove(item.class);
-                    el.style.opacity = '0'; // Reset opacity
+                    el.style.opacity = '0';
                 }
             }
         });
@@ -50,19 +53,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                addAnimations(); // Trigger animations when section is visible
+                addAnimations();
             } else {
-                removeAnimations(); // Reset animations when section is out of view
+                removeAnimations();
             }
         });
     }, {
-        threshold: 0.3 // Trigger when 30% of the section is visible
+        threshold: 0.3
     });
 
     // Start observing the hero section
     observer.observe(heroSection);
 
-    // Optional: Trigger animations on initial load if section is in view
+    // Trigger animations on initial load if section is in view
     if (heroSection.getBoundingClientRect().top < window.innerHeight) {
         addAnimations();
     }

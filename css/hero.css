@@ -14,16 +14,285 @@
     justify-content: center;
 }
 
+/* --- UNIFIED CARD EFFECTS & RESPONSIVE BENTO GRID --- */
+
+/* 1. Unified Card Effects for All Cards */
+.bento-box,
+.bento-card,
+.bento-tech-top,
+.bento-tech-bottom,
+.bento-connect {
+    background: #2a2a2a;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.18);
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+    will-change: transform, box-shadow;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bento-card {
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.bento-card.animate {
+    opacity: 1;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.bento-box:hover,
+.bento-card:hover,
+.bento-tech-top:hover,
+.bento-tech-bottom:hover,
+.bento-connect:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 8px 32px rgba(142,255,84,0.18), 0 2px 8px rgba(0,0,0,0.18);
+    z-index: 2;
+}
+
+/* 2. Remove duplicate backgrounds for special cards */
+.bento-tech-top,
+.bento-tech-bottom {
+    background: #3a3a3a;
+}
+.bento-connect {
+    background: #8eff54;
+}
+
+/* 3. Consistent spacing for all cards */
+.bento-box,
+.bento-card,
+.bento-tech-top,
+.bento-tech-bottom,
+.bento-connect {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 4. Responsive Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto;
+    gap: 16px;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    padding: 0 10px;
+}
+
+/* 5. Responsive adjustments for tablets */
+@media (max-width: 1100px) {
+    .bento-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(6, auto);
+        gap: 14px;
+        padding: 0 4vw;
+    }
+    .bento-portrait,
+    .bento-intro,
+    .bento-intro-side-cards,
+    .bento-bio,
+    .bento-tech-container,
+    .bento-connect {
+        grid-column: 1 / 3 !important;
+        min-width: 0;
+        width: 100%;
+    }
+    .bento-intro-side-cards {
+        flex-direction: row;
+        gap: 14px;
+    }
+    .bento-card {
+        min-width: 0;
+        width: 100%;
+    }
+}
+
+/* 6. Full Mobile Compatibility */
+@media (max-width: 768px) {
+    .bento-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 0 2vw;
+    }
+    .bento-intro-side-cards {
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        min-width: 0;
+    }
+    .bento-card.university-card,
+    .bento-card.toolbox-card {
+        min-height: 120px;
+        width: 100%;
+        padding: 18px 10px 18px 10px; /* More padding for breathing room */
+        box-sizing: border-box;
+    }
+    .bento-box,
+    .bento-card,
+    .bento-tech-top,
+    .bento-tech-bottom,
+    .bento-connect {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        border-radius: 16px;
+        padding: 12px 8px;
+        margin: 0;
+    }
+    .bento-intro-side-cards {
+        flex-direction: column;
+        gap: 10px;
+        min-width: 0;
+        width: 100%;
+    }
+    .bento-card.university-card,
+    .bento-card.toolbox-card {
+        min-height: 90px;
+    }
+    .bento-bio,
+    .bento-tech-container,
+    .bento-connect {
+        min-width: 0;
+        width: 100%;
+        aspect-ratio: auto;
+        padding: 10px 8px;
+    }
+    .bento-tech-top,
+    .bento-tech-bottom {
+        min-height: 90px;
+        padding: 10px 8px;
+    }
+    .bento-connect {
+        min-height: 90px;
+    }
+    .toolbox-img-slot {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* 7. Toolbox Card: Horizontal Images, Consistent Padding */
+.toolbox-card {
+    background: #232323;
+    border-radius: 20px;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    padding: 18px 0;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0;
+}
+.toolbox-images-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.toolbox-img-slot {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    background: #181818;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.toolbox-img-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.toolbox-tooltip {
+    display: none;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #232323;
+    color: #8eff54;
+    padding: 6px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+}
+.toolbox-img-slot:hover .toolbox-tooltip {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-6px) scale(1.05);
+}
+
+/* 8. University Card: Consistent Height & Padding */
+.university-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 125px;
+    background: #111;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0;
+    margin: 0;
+}
+
+/* 9. Match .bento-tech-bottom spacing with others */
+.bento-tech-bottom {
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+
+/* 10. Remove extra margin from all cards in side-cards */
+.bento-intro-side-cards > .bento-card {
+    margin: 0;
+}
+
+/* 11. Ensure all cards have the same hover effect on mobile (no hover on touch, but keep tap effect) */
+@media (hover: none) and (pointer: coarse) {
+    .bento-box:active,
+    .bento-card:active,
+    .bento-tech-top:active,
+    .bento-tech-bottom:active,
+    .bento-connect:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 8px rgba(142,255,84,0.18), 0 1px 4px rgba(0,0,0,0.18);
+    }
+}
+
+/* --- END UNIFIED CARD EFFECTS & RESPONSIVE BENTO GRID --- */
+
 /* Bento Grid Layout */
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto auto;
-    gap: 20px;
+    gap: 16px; /* unified gap for all grid items */
     width: 100%;
-    height: 80%;
     z-index: 1;
     position: relative;
+    padding: 0 10px;
 }
 
 /* Bento Boxes */
@@ -50,6 +319,7 @@
     background: none;
     padding: 0;
     overflow: hidden;
+    min-height: 250px;
 }
 
 .bento-portrait-img {
@@ -65,9 +335,24 @@
 }
 
 .bento-intro {
-    grid-column: 3 / 6;
-    grid-row: 1 / 2;
+    grid-column: 3 / 5; /* was 3 / 6 */
+    max-width: 550px;
     background: #3a3a3a;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+}
+
+.bento-intro-side-cards {
+    grid-column: 5 / 6;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* match grid gap */
+    align-items: stretch;
+    min-width: 170px;
 }
 
 .bento-bio {
@@ -76,35 +361,275 @@
     background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
     border: 1px solid #8eff54;
     box-shadow: 0 0 10px rgba(142, 255, 84, 0.2);
-}
-
-.bento-square {
-    padding: 15px;
-    background: #3a3a3a;
-    border-radius: 15px;
-    align-items: center;
+    min-width: 150px;
+    min-height: 150px;
+    aspect-ratio: 1/1;
+    border-radius: 20px;
+    display: flex;
     justify-content: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    padding: 10px;
+    text-align: center;
 }
 
-.bento-tech {
+.bento-tech-container {
     grid-column: 4 / 5;
     grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* match grid gap */
+}
+
+.bento-tech-top,
+.bento-tech-bottom {
     text-align: center;
+    background: #3a3a3a;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    min-height: 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .bento-connect {
     grid-column: 5 / 6;
     grid-row: 2 / 3;
     background: #8eff54;
+    min-width: 150px;
+    min-height: 150px;
+    aspect-ratio: 1/1;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Removed bento-title for consistency with bento-tech-bottom */
+}
+
+/* University Card */
+.university-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 145px;
+    background: #111;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+.university-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    top: 0; left: 0;
+}
+
+.university-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 2;
+    top: 0; left: 0;
+}
+
+.university-title {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    z-index: 3;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.university-download {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    z-index: 3;
+    text-decoration: none;
+}
+
+.university-download .arrow-circle {
+    background: #fff;
+    color: #1a1a1a;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.university-download .arrow-circle i {
+    color: #1a1a1a;
+    font-size: 16px;
+}
+
+.university-download:hover .arrow-circle {
+    background: #8eff54;
+}
+
+.university-subtitle {
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    z-index: 3;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    opacity: 0.85;
+}
+
+.university-progress {
+    position: absolute;
+    left: 18px;
+    bottom: 45px;
+    z-index: 3;
+    display: flex;
+    gap: 4px;
+    height: 10px;
+}
+
+.progress-segment {
+    width: 18px;
+    height: 10px;
+    border-radius: 3px;
+    background: #fff;
+    transition: background 0.3s;
+}
+
+.progress-segment.filled {
+    background: #8eff54;
+}
+
+/* Toolbox Card */
+.toolbox-card {
+    background: #232323;
+    border-radius: 20px;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    padding: 18px 0;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0;
+}
+
+.toolbox-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+    align-items: center;
+}
+
+/* Horizontal row for images */
+.toolbox-images-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.toolbox-img-slot {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    background: #181818;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.toolbox-img-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.toolbox-tooltip {
+    display: none;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #232323;
+    color: #8eff54;
+    padding: 6px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+}
+
+.toolbox-img-slot:hover .toolbox-tooltip {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-6px) scale(1.05);
+}
+
+/* Popup tooltip for all bento cards */
+.bento-card .bento-popup-tooltip {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    background: #232323;
+    color: #8eff54;
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 0.25s, transform 0.25s;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.bento-card:hover .bento-popup-tooltip {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-8px) scale(1.05);
+}
+
+/* Ensure .bento-card is position:relative for tooltip positioning */
+.bento-card {
+    position: relative;
 }
 
 /* Main Intro */
 .hero-title {
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 700;
     color: #fff;
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0;
     line-height: 1.1;
     opacity: 0;
 }
@@ -119,18 +644,6 @@
     text-shadow: 0 2px 5px rgba(142, 255, 84, 0.3);
 }
 
-.hero-tagline {
-    color: #ddd;
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 20px 0;
-    opacity: 0;
-}
-
-.hero-tagline.animate {
-    animation: fadeInUp 0.9s ease forwards 0.1s;
-}
-
 /* CTA Buttons */
 .cta-buttons {
     display: flex;
@@ -138,14 +651,14 @@
 }
 
 .hero-btn {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
-    border-radius: 25px;
+    border-radius: 20px;
     transition: all 0.3s ease;
     opacity: 0;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .hero-btn.animate {
@@ -155,7 +668,7 @@
 .btn-primary {
     background: linear-gradient(135deg, #8eff54, #7de048);
     color: #1a1a1a;
-    padding: 12px 20px 12px 20px;
+    padding: 10px 18px;
     border: none;
     box-shadow: 0 4px 15px rgba(142, 255, 84, 0.3);
     position: relative;
@@ -169,8 +682,8 @@
 
 .arrow-circle {
     background: #fff;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -178,7 +691,7 @@
 }
 
 .arrow-circle i {
-    font-size: 16px;
+    font-size: 14px;
     color: #1a1a1a;
 }
 
@@ -190,11 +703,12 @@
 .hero-bio {
     color: #ddd;
     font-size: 14px;
-    line-height: 1.8;
+    line-height: 1.4;
     margin: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     opacity: 0;
+    text-align: center;
 }
 
 .hero-bio.animate {
@@ -213,6 +727,7 @@
     font-weight: 600;
     margin-bottom: 10px;
     opacity: 0;
+    text-align: center;
 }
 
 .bento-title.animate {
@@ -220,22 +735,22 @@
 }
 
 .bento-connect .bento-title {
-    color: #1a1a1a;
+    display: none; /* Removed title as per request */
 }
 
 .tech-icons {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .tech-icons i {
-    font-size: 20px;
+    font-size: 18px;
     color: #ddd;
-    width: 36px;
-    height: 36px;
-    line-height: 36px;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
     text-align: center;
     border-radius: 50%;
     background: #1a1a1a;
@@ -259,18 +774,19 @@
 .social-links {
     display: flex;
     gap: 10px;
+    justify-content: center;
 }
 
 .social-link {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: #1a1a1a;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #8eff54;
-    font-size: 14px;
+    font-size: 13px;
     transition: all 0.3s ease;
     opacity: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -292,20 +808,20 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .intro-text {
     color: #ddd;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
 }
 
 .roles-container {
     position: relative;
-    height: 24px;
+    height: 20px;
     overflow: hidden;
-    min-width: 200px;
+    min-width: 180px;
 }
 
 .role {
@@ -313,74 +829,38 @@
     top: 0;
     left: 0;
     color: #8eff54;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     opacity: 0;
     transform: translateY(20px);
-    animation: cycle-roles 8s infinite; /* Reduced from 12s to 8s */
+    animation: cycle-roles 8s infinite;
     width: 100%;
 }
 
 /* Animation for each role */
 @keyframes cycle-roles {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    5% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    25% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    30% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
+    0% { opacity: 0; transform: translateY(20px); }
+    5% { opacity: 1; transform: translateY(0); }
+    25% { opacity: 1; transform: translateY(0); }
+    30% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 0; transform: translateY(-20px); }
 }
 
 /* Stagger the animation for each role */
-.role:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.role:nth-child(2) {
-    animation-delay: 2s; /* Reduced from 3s */
-}
-
-.role:nth-child(3) {
-    animation-delay: 4s; /* Reduced from 6s */
-}
-
-.role:nth-child(4) {
-    animation-delay: 6s; /* Reduced from 9s */
-}
+.role:nth-child(1) { animation-delay: 0s; }
+.role:nth-child(2) { animation-delay: 2s; }
+.role:nth-child(3) { animation-delay: 4s; }
+.role:nth-child(4) { animation-delay: 6s; }
 
 /* Animation Keyframes */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Media Queries for Mobile */
@@ -391,97 +871,98 @@
         margin: 5px auto;
     }
 
+    .bento-card.university-card {
+        min-height: 120px; /* Increase this value as needed */
+        height: 120px;
+    }
+
     .bento-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        gap: 15px;
-        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 0 2vw;
     }
-
-    .bento-portrait {
-        grid-column: 1 / 2;
-        grid-row: auto;
-        height: 300px;
+    .bento-intro-side-cards {
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        min-width: 0;
     }
-
-    .bento-intro {
-        grid-column: 1 / 2;
-        grid-row: auto;
-        padding: 15px;
+    .bento-card.university-card,
+    .bento-card.toolbox-card {
+        min-height: 120px;
+        width: 100%;
+        padding: 18px 10px 18px 10px; /* More padding for breathing room */
+        box-sizing: border-box;
     }
-
-    .bento-bio {
-        grid-column: 1 / 2;
-        grid-row: auto;
-    }
-
-    .bento-tech {
-        grid-column: 1 / 2;
-        grid-row: auto;
-    }
-
+    .bento-box,
+    .bento-card,
+    .bento-tech-top,
+    .bento-tech-bottom,
     .bento-connect {
-        grid-column: 1 / 2;
-        grid-row: auto;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        border-radius: 16px;
+        padding: 12px 8px;
+        margin: 0;
     }
+    .bento-intro-side-cards {
+        flex-direction: column;
+        gap: 10px;
+        min-width: 0;
+        width: 100%;
+    }
+    .bento-card.university-card,
+    .bento-card.toolbox-card {
+        min-height: 90px;
+    }
+    .bento-bio,
+    .bento-tech-container,
+    .bento-connect {
+        min-width: 0;
+        width: 100%;
+        aspect-ratio: auto;
+        padding: 10px 8px;
+    }
+    .bento-tech-top,
+    .bento-tech-bottom {
+        min-height: 90px;
+        padding: 10px 8px;
+    }
+    .bento-connect {
+        min-height: 90px;
+    }
+    .toolbox-img-slot {
+        width: 44px;
+        height: 44px;
+    }
+}
 
-    .hero-title {
-        font-size: 32px;
-        margin-bottom: 8px;
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .bento-intro {
+        max-width: 340px;
     }
+    .bento-intro-side-cards {
+        min-width: 140px;
+    }
+    .university-card, .toolbox-card {
+        min-height: 130px;
+    }
+    .toolbox-img-slot {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+}
 
-    .hero-tagline {
-        font-size: 16px;
-        margin-bottom: 15px;
-    }
+.university-bg,
+.university-overlay {
+    pointer-events: none;
+}
 
-    .hero-bio {
-        font-size: 13px;
-        line-height: 1.6;
-    }
-
-    .bento-title {
-        font-size: 13px;
-    }
-
-    .hero-btn {
-        font-size: 14px;
-        padding: 10px 15px;
-    }
-
-    .arrow-circle {
-        width: 30px;
-        height: 30px;
-    }
-
-    .arrow-circle i {
-        font-size: 14px;
-    }
-
-    .tech-icons i {
-        font-size: 18px;
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
-    }
-
-    .social-link {
-        width: 28px;
-        height: 28px;
-        font-size: 13px;
-    }
-
-    .roles-container {
-        height: 20px;
-        min-width: 180px;
-        margin-bottom: 3px;
-    }
-
-    .intro-text {
-        font-size: 16px;
-    }
-
-    .role {
-        font-size: 16px;
-    }
+.university-card,
+.toolbox-card {
+    padding: 20px;
 }

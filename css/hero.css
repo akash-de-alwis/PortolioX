@@ -204,7 +204,7 @@
     width: 54px;
     height: 54px;
     border-radius: 12px;
-    background: #181818;
+    background: #8eff54;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -380,10 +380,22 @@
     gap: 16px; /* match grid gap */
 }
 
-.bento-tech-top,
+
 .bento-tech-bottom {
     text-align: center;
     background: #3a3a3a;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    min-height: 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bento-tech-top {
+    text-align: center;
+    background: #8eff54;
     padding: 15px;
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -514,7 +526,7 @@
 
 /* Toolbox Card */
 .toolbox-card {
-    background: #232323;
+    background: #8eff54;
     border-radius: 20px;
     min-height: 90px;
     display: flex;
@@ -552,7 +564,7 @@
     width: 54px;
     height: 54px;
     border-radius: 12px;
-    background: #181818;
+    background: #8eff54;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -722,7 +734,7 @@
 
 /* Tech Stack and Connect */
 .bento-title {
-    color: #ddd;
+    color: #3a3a3a;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 10px;

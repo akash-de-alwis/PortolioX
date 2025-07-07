@@ -381,7 +381,7 @@
 }
 
 
-.bento-tech-bottom {
+.bento-tech-top {
     text-align: center;
     background: #3a3a3a;
     padding: 15px;
@@ -393,7 +393,7 @@
     justify-content: center;
 }
 
-.bento-tech-top {
+.bento-tech-bottom {
     text-align: center;
     background: #8eff54;
     padding: 15px;
@@ -408,7 +408,7 @@
 .bento-connect {
     grid-column: 5 / 6;
     grid-row: 2 / 3;
-    background: #8eff54;
+    background: #3a3a3a;
     min-width: 150px;
     min-height: 150px;
     aspect-ratio: 1/1;
@@ -734,7 +734,7 @@
 
 /* Tech Stack and Connect */
 .bento-title {
-    color: #3a3a3a;
+    color: #fff;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 10px;

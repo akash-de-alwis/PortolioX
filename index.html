@@ -27,6 +27,7 @@
 
     <!-- Add Font Awesome for hamburger icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="shortcut icon" href="assests/logo.png" type="image/x-icon">
 </head>
@@ -227,6 +228,7 @@
         </div>
     </div>
 </section>
+
 <!-- About Section --> 
 <div class="stats-section">
     <div class="stats-header">
@@ -257,53 +259,135 @@
 </div>
 
 <!-- About Section --> 
-    <section id="about" class="about-section">
-        <div class="about-container">
-            <div class="about-header">
-                <div class="section-title">
-                    <h2>About</h2>
-                    <span class="title-tag">Me</span>
-                </div>
-                <p>Learn more about who I am and what drives me.</p>
-            </div>
-            <div class="about-bento-grid">
-                <div class="about-image-wrapper">
-                    <div class="about-image-box">
-                        <img src="assests/aboutme.png" alt="Akash De Alwis" class="about-image">
+<section id="about" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <!-- About Me Header -->
+                <div class="about-header text-center mb-16">
+                    <div class="section-title">
+                        <span class="title-tag">About</span>
+                        <h2>Me</h2>
                     </div>
-                    <div class="cta-container">
-                        <a href="#contact" class="hero-btn btn-primary">
-                            Get in Touch
-                            <span class="arrow-circle"><i class="fas fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="about-bento-box about-intro-box">
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/people/Akash-De-Alwis/pfbid0qQ24EVKpEKNQU1w4C5srMFFU2t2peQjTqeT51jrLVpaBtQyR6PfhzBhpgVNp2rqYl/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://x.com/AlwisAkash002" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/akash__alwis/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/akash-de-alwis-976a82284?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <h3 class="about-intro">Hello! I'm Akash De Alwis</h3>
-                    <p class="about-short-desc">A creative web developer with a passion for building impactful digital solutions.</p>
-                    <p class="about-description">A passionate web developer and UI designer based in Sri Lanka, I specialize in crafting responsive websites and intuitive user interfaces that blend functionality with aesthetics.</p>
-                </div>
-                <div class="about-bento-box personal-info-box">
-                    <div class="personal-info">
-                        <div class="info-item"><span class="info-label">Age</span><span class="info-value">23 +</span></div>
-                        <div class="info-item"><span class="info-label">Phone</span><span class="info-value">(+94) 766-138-829</span></div>
-                        <div class="info-item"><span class="info-label">Email</span><span class="info-value"><a href="mailto:[email protected]">akashdealwis@gmail.com</a></span></div>
-                        <div class="info-item"><span class="info-label">Address</span><span class="info-value">Panadura, Sri Lanka</span></div>
-                    </div>
+                    <p>A snapshot of my journey as a passionate web developer and UI designer.</p>
                 </div>
 
-                <!--mobile social section -->
-                <div class="social-section">
-                    <a href="https://fcebook.com"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://x.com"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
-                    <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left Column - Text Content -->
+                    <div class="space-y-6">
+                        <div class="space-y-4 text-lg leading-relaxed">
+                            <div class="flex items-start space-x-3">
+                                <div class="icon-container flex-shrink-0">
+                                    <i class="fas fa-laptop-code text-primary"></i>
+                                </div>
+                                <p class="text-foreground-90">
+                                    A creative web developer with a passion for building impactful digital solutions.
+                                </p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="icon-container flex-shrink-0">
+                                    <i class="fas fa-paintbrush text-primary"></i>
+                                </div>
+                                <p class="text-foreground-80">
+                                    A passionate web developer and UI designer based in Sri Lanka, I specialize in 
+                                    crafting responsive websites and intuitive user interfaces that blend functionality 
+                                    with aesthetics.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Skills highlight -->
+                        <div class="glass-card p-6 rounded-xl">
+                            <h3 class="text-xl font-semibold mb-6 text-foreground">What I Bring to the Table</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="icon-container flex-shrink-0">
+                                        <i class="fas fa-laptop-code text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-foreground text-sm">Clean Code</h4>
+                                        <p class="text-xs text-muted-foreground mt-1">Writing maintainable, scalable code following best practices</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="icon-container flex-shrink-0">
+                                        <i class="fas fa-swatchbook text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-foreground text-sm">Design Systems</h4>
+                                        <p class="text-xs text-muted-foreground mt-1">Creating consistent, beautiful user interfaces and experiences</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="icon-container flex-shrink-0">
+                                        <i class="fas fa-mobile-screen text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-foreground text-sm">Mobile First</h4>
+                                        <p class="text-xs text-muted-foreground mt-1">Building responsive applications that work seamlessly across devices</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="icon-container flex-shrink-0">
+                                        <i class="fas fa-layer-group text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-foreground text-sm">Full Stack</h4>
+                                        <p class="text-xs text-muted-foreground mt-1">End-to-end development from database to user interface</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Current Focus -->
+                        <div class="p-6 bg-gradient-to-r from-primary-10 to-accent-blue-10 rounded-xl border border-primary-20">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <div class="icon-container flex-shrink-0">
+                                    <i class="fas fa-suitcase text-primary"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-foreground">Currently Working On</h3>
+                            </div>
+                            <p class="text-muted-foreground">
+                                Expanding my full-stack development skills through an internship at 
+                                <span class="code-text ml-1 text-green-400">Rawana Industries</span>, 
+                                working with modern technologies like React, Next.js, and Vue.js.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Visual Element -->
+                    <div class="relative">
+                        <div class="glass-card p-8 rounded-xl mobile-frame">
+                            <!-- Code-style bio -->
+                            <div class="space-y-2 font-mono text-sm">
+                                <div class="text-accent-blue">const</div>
+                                <div class="text-primary ml-4">developer = {</div>
+                                <div class="ml-8 text-muted-foreground">
+                                    <span class="text-foreground">name:</span> <span class="text-green-400">"Akash De Alwis"</span>,
+                                </div>
+                                <div class="ml-8 text-muted-foreground">
+                                    <span class="text-foreground">location:</span> <span class="text-green-400">"Sri Lanka"</span>,
+                                </div>
+                                <div class="ml-8 text-muted-foreground">
+                                    <span class="text-foreground">education:</span> <span class="text-green-400">"SLIIT"</span>,
+                                </div>
+                                <div class="ml-8 text-muted-foreground">
+                                    <span class="text-foreground">skills:</span> [
+                                </div>
+                                <div class="ml-12 text-green-400">
+                                    "React", "JavaScript", "Python",<br>
+                                    "UI/UX Design", "Mobile Development"
+                                </div>
+                                <div class="ml-8 text-muted-foreground">],</div>
+                                <div class="ml-8 text-muted-foreground">
+                                    <span class="text-foreground">passion:</span> <span class="text-green-400">"Creating digital experiences"</span>,
+                                </div>
+                                <div class="ml-8 text-muted-foreground">
+                                    <span class="text-foreground">status:</span> <span class="text-green-400">"Available for projects"</span>
+                                </div>
+                                <div class="text-primary ml-4">};</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -311,7 +395,7 @@
 
 <br> <br>
     <!-- Services Section -->
-    <section id="services" class="services-section">
+    <section class="services-section">
         <div class="services-header">
             <div class="section-title">
                 <span class="title-tag">My</span>
@@ -324,7 +408,7 @@
             <div class="choice-container">
                 <div class="choice-cards-row">
                     <!-- Card 1 - Dark -->
-                    <div class="choice-card choice-dark-theme">
+                    <div id="services" class="choice-card choice-dark-theme">
                         <div class="choice-card-inner">
                             <div class="choice-text-content">
                                 <p class="choice-description">Mobile Application<br>Development</p>
@@ -390,8 +474,8 @@
             <section class="education-experience-section" id="resume">
                 <div class="education-experience-header">
                     <div class="section-title">
-                        <h2>Education &</h2>
-                        <div class="title-tag">Experience</div>
+                        <div class="title-tag">Education &</div>
+                        <h2>Experience</h2>
                     </div>
                     <p>A chronological journey through my academic and professional development, showcasing my growth and expertise in the field.</p>
                 </div>
@@ -606,10 +690,9 @@
 <div id="projects" class="projects-section fade-in delay-3">
     <div class="projects-dropdown">
         <div class="projects-header" id="projects-toggle">
-            <div class="dropdown-tag">Dropdown</div>
             <div class="section-title">
-                <h2>My</h2>
-                <span class="title-tag">Projects</span>
+                <span class="title-tag">My</span>
+                <h2>Projects</h2>
             </div>
             <span class="dropdown-arrow">▼</span>
         </div>
@@ -1078,8 +1161,8 @@
     <div class="contact-container">
         <div class="contact-header">
             <div class="section-title">
-                <h2>Get in</h2>
-                <span class="title-tag">Touch</span>
+                <span class="title-tag">Get in</span>
+                <h2>Touch</h2>
             </div>
             <p>Have a project in mind? Let's collaborate and bring your ideas to life!</p>
         </div>

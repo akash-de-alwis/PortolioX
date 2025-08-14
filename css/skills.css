@@ -8,13 +8,13 @@
     position: relative;
 }
 
+/* Skills Header */
 .skills-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     margin-bottom: 40px;
-    position: relative;
 }
 
 .skills-header p {
@@ -23,7 +23,6 @@
     line-height: 1.6;
     max-width: 600px;
     margin: 0 auto;
-    position: relative;
 }
 
 .skills-header p::after {
@@ -31,9 +30,38 @@
     display: block;
     width: 50px;
     height: 3px;
-    background-color: #8eff54;
+    background-color: #8eff54; /* var(--primary) */
     margin: 25px auto 0;
     border-radius: 2px;
+}
+
+.skills-header .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
+}
+
+.skills-header .section-title h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff; /* var(--foreground) */
+    white-space: nowrap;
+}
+
+.skills-header .title-tag {
+    background: #8eff54; /* var(--primary) */
+    color: #1a1a1a; /* var(--bg-darker) */
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 15px;
+    margin-left: 0;
+    margin-right: 0;
+    letter-spacing: 1px;
+    display: inline-block;
 }
 
 .skills-content {
@@ -51,7 +79,7 @@
 
 .skill-info {
     display: flex;
-    align-items: center; /* Align icon and name vertically */
+    align-items: center;
     justify-content: space-between;
     margin-bottom: 8px;
 }
@@ -59,7 +87,7 @@
 .skill-name-wrapper {
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between icon and name */
+    gap: 10px;
 }
 
 .skill-icon {
@@ -101,41 +129,74 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: 0; /* Start at 0 width */
+    width: 0;
     background-color: #8eff54;
     border-radius: 5px;
-    transition: width 0s; /* No transition by default */
+    transition: width 0s;
 }
 
 .skill-progress.animate-progress::before {
-    width: var(--progress-width); /* Animate to the defined width */
-    transition: width 1.5s ease-in-out; /* Apply transition when class is added */
+    width: var(--progress-width);
+    transition: width 1.5s ease-in-out;
 }
 
-/* Media Queries */
+/* Responsive adjustments for tablets */
+@media (max-width: 1100px) {
+    .skills-header .section-title h2 {
+        font-size: 28px;
+    }
+    .skills-header p {
+        font-size: 16px;
+    }
+    .skills-content {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 0 4vw;
+    }
+}
+
+/* Full Mobile Compatibility */
 @media (max-width: 768px) {
     .skills-section {
         padding: 30px;
     }
-
-    .skills-content {
-        grid-template-columns: 1fr;
+    .skills-header {
+        margin-bottom: 30px;
     }
-
-    .skill-item {
-        margin-bottom: 15px;
+    .skills-header .section-title h2 {
+        font-size: 24px;
+    }
+    .skills-header p {
+        font-size: 14px;
+    }
+    .skills-header p::after {
+        margin: 20px auto 0;
+    }
+    .skills-content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 0 2vw;
     }
 }
 
 @media (max-width: 480px) {
+    .skills-header .section-title h2 {
+        font-size: 22px;
+    }
+    .skills-header .title-tag {
+        font-size: 14px;
+        padding: 4px 12px;
+    }
+    .skills-header p {
+        font-size: 13px;
+    }
     .skill-name {
         font-size: 14px;
     }
-
     .skill-percentage {
         font-size: 12px;
     }
-
     .skill-icon {
         height: 20px;
         width: 20px;

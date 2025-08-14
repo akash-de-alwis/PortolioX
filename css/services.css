@@ -1,15 +1,52 @@
+/* Import root variables to ensure consistency */
+:root {
+    --primary: #8eff54; /* From .title-highlight, .btn-primary, etc. */
+    --foreground: #fff; /* From .university-title, .bento-title */
+    --bg-darker: #1a1a1a; /* From .hero */
+}
+
 /* Choice Cards Section */
 .choice-reasons-wrapper {
     padding: 60px 20px;
     background-color: transparent;
 }
 
+/* Services Header (Styled like About Me Header) */
 .services-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    position: relative;
+    margin-bottom: 40px;
+}
+
+.services-header .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
+}
+
+.services-header .section-title h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--foreground); /* #fff */
+    white-space: nowrap;
+}
+
+.services-header .title-tag {
+    background: var(--primary); /* #8eff54 */
+    color: var(--bg-darker); /* #1a1a1a */
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 15px;
+    margin-left: 0;
+    margin-right: 0;
+    letter-spacing: 1px;
+    display: inline-block;
 }
 
 .services-header p {
@@ -18,7 +55,6 @@
     line-height: 1.6;
     max-width: 600px;
     margin: 0 auto;
-    position: relative;
 }
 
 .services-header p::after {
@@ -26,11 +62,53 @@
     display: block;
     width: 50px;
     height: 3px;
-    background-color: #8eff54;
+    background-color: var(--primary); /* #8eff54 */
     margin: 25px auto 0;
     border-radius: 2px;
 }
 
+/* Responsive adjustments for tablets */
+@media (max-width: 1100px) {
+    .services-header .section-title h2 {
+        font-size: 28px;
+    }
+    .services-header p {
+        font-size: 16px;
+    }
+}
+
+/* Full Mobile Compatibility */
+@media (max-width: 768px) {
+    .services-header {
+        margin-bottom: 30px;
+    }
+    .services-header .section-title h2 {
+        font-size: 24px;
+    }
+    .services-header p {
+        font-size: 14px;
+        margin: 0 16px; /* Match mobile margins from original */
+    }
+    .services-header p::after {
+        margin: 20px auto 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-header .section-title h2 {
+        font-size: 22px;
+    }
+    .services-header .title-tag {
+        font-size: 14px;
+        padding: 4px 12px;
+    }
+    .services-header p {
+        font-size: 13px;
+        margin: 0 20px; /* Match smaller screen margins from original */
+    }
+}
+
+/* Existing styles for choice cards remain unchanged */
 .choice-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -215,20 +293,6 @@
     .choice-reasons-wrapper {
         padding: 40px 16px;
     }
-
-    .services-header {
-        margin-bottom: 10px; /* Increased bottom margin for mobile */
-    }
-
-    .services-header p {
-        margin: 0 16px; /* Added side margins for mobile */
-    }
-
-    .services-section {
-        font-size: 16px;
-        max-width: 100%;
-        line-height: 1.5;
-    }
 }
 
 @media (max-width: 480px) {
@@ -248,13 +312,5 @@
     .choice-arrow-container {
         width: 32px;
         height: 32px;
-    }
-
-    .services-header {
-        margin-bottom: 70px; /* Further increased bottom margin for smaller screens */
-    }
-
-    .services-header p {
-        margin: 0 20px; /* Slightly larger side margins for smaller screens */
     }
 }
